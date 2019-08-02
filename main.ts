@@ -1,6 +1,7 @@
 ﻿/*
 Copyright (C): 2010-2019, Shenzhen Yahboom Tech
-modified by kaktus
+modified from liusen
+kaktus broke down a bit
 load dependency
 "mbit": "file:../pxt-mbit"
 */
