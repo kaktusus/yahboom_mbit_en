@@ -1,6 +1,6 @@
 ﻿/*
 Copyright (C): 2010-2019, Shenzhen Yahboom Tech
-modified from liusen
+modified by kaktus
 load dependency
 "mbit": "file:../pxt-mbit"
 */
@@ -75,7 +75,7 @@ namespace mbit_Display {
     //% blockId=mbit_LEDL8 block="LED_L8|value %value"
     //% weight=3
     //% blockGap=8
-    //% color="#C814B8"
+    //% color="#2bb570"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
     export function LED_L8(value: enLED_L8): void {
 
