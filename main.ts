@@ -82,24 +82,7 @@ namespace mbit_Display {
         pins.i2cWriteBuffer(addr, buf)
 
     }	
-	export enum enLED_L9 {
-        
-        //% blockId="OFF" block="off"
-        OFF = 1,
-        //% blockId="ON" block="on"
-        ON = 0
-    }
 
-    //% blockId=mbit_LED_L9 block="LED_L9|value %value"
-    //% weight=3
-    //% blockGap=8
-    //% color="#5a88d1"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    export function LED_L9(value: enLED_L9): void {
-
-        pins.i2cWriteBuffer(addr, buf)
-
-    }
 	
 	
 /*##################################################################################################################################*/
