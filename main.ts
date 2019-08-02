@@ -67,7 +67,7 @@ namespace mbit_Display {
 	export enum enLED_L8 {
         
         //% blockId="OFF" block="off"
-        OFF = 1,
+        OFF = 1024, //4096
         //% blockId="ON" block="on"
         ON = 0
     }
@@ -79,7 +79,8 @@ namespace mbit_Display {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
     export function LED_L8(value: enLED_L8): void {
 
-        pins.i2cWriteBuffer(addr, buf)
+	setPwm(6, 0, value);    
+        //pins.i2cWriteBuffer(addr, buf)
 
     }	
 
