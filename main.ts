@@ -74,7 +74,7 @@ namespace mbit_Display {
     }
 
     //% blockId=mbit_LED_L8 block="LED_L8|value %value"
-    //% weight=3
+    //% weight=5
     //% blockGap=8
     //% color="#26cfed"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
