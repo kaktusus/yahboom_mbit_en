@@ -82,13 +82,7 @@ namespace mbit_Display {
 	setPwm(6, 0, value);    
     }	
 
-	export enum enLED_L9 {
-        
-        //% blockId="OFF" block="off"
-        OFF = 1024, //0-4096
-        //% blockId="ON" block="on"
-        ON = 0
-    }
+
 
 	
 	
