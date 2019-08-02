@@ -67,7 +67,7 @@ namespace mbit_Display {
 	export enum enLED_L8 {
         
         //% blockId="OFF" block="off"
-        OFF = 1024, //4096
+        OFF = 1024, //0-4096
         //% blockId="ON" block="on"
         ON = 0
     }
@@ -75,16 +75,30 @@ namespace mbit_Display {
     //% blockId=mbit_LED_L8 block="LED_L8|value %value"
     //% weight=3
     //% blockGap=8
-    //% color="#5a88d1"
+    //% color="#26cfed"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+
     export function LED_L8(value: enLED_L8): void {
-
 	setPwm(6, 0, value);    
-        //pins.i2cWriteBuffer(addr, buf)
-
     }	
 
-	
+	export enum enLED_L9 {
+        
+        //% blockId="OFF" block="off"
+        OFF = 1024, //0-4096
+        //% blockId="ON" block="on"
+        ON = 0
+    }
+
+    //% blockId=mbit_LED_L9 block="LED_L9|value %value"
+    //% weight=3
+    //% blockGap=8
+    //% color="#26cfed"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+    
+    export function LED_L9(value: enLED_L9): void {
+	setPwm(7 0, value);    
+    }	
 	
 /*##################################################################################################################################*/
 
