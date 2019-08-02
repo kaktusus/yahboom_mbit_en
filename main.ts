@@ -68,9 +68,9 @@ namespace mbit_Display {
 	export enum enLED_L8 {
         
         //% blockId="OFF" block="off"
-        OFF = 1024, //0-4096
+        OFF = 4096, //0-4096
         //% blockId="ON" block="on"
-        ON = 0
+        ON = 1024
     }
 
     //% blockId=mbit_LED_L8 block="LED_L8|value %value"
