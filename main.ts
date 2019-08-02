@@ -60,9 +60,9 @@ namespace mbit_Display {
         pins.analogWritePin(pin, value * 1024 / 256);
 
     }
-/************************************************************************************************************************************	
- **  testy kaktusa z niebieskimi ledami L8, L9, L10  ********************************************************************************    
- ************************************************************************************************************************************/	
+/*###################################################################################################################################	
+ ##  testy kaktusa z niebieskimi ledami L8, L9, L10  ################################################################################    
+ ###################################################################################################################################*/	
 	
 	export enum enLED_L8 {
         
@@ -79,11 +79,47 @@ namespace mbit_Display {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
     export function LED_L8(value: enLED_L8): void {
 
-        pins.digitalWritePin(value);
+        pins.i2cWriteBuffer(addr, buf)
 
     }	
+	export enum enLED_L9 {
+        
+        //% blockId="OFF" block="off"
+        OFF = 1,
+        //% blockId="ON" block="on"
+        ON = 0
+    }
+
+    //% blockId=mbit_LEDL8 block="LED_L9|value %value"
+    //% weight=3
+    //% blockGap=8
+    //% color="#2bb570"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+    export function LED_L8(value: enLED_L9): void {
+
+        pins.i2cWriteBuffer(addr, buf)
+
+    }
 	
-/************************************************************************************************************************************/
+	export enum enLED_L10
+        
+        //% blockId="OFF" block="off"
+        OFF = 1,
+        //% blockId="ON" block="on"
+        ON = 0
+    }
+
+    //% blockId=mbit_LEDL8 block="LED_L10|value %value"
+    //% weight=3
+    //% blockGap=8
+    //% color="#2bb570"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+    export function LED_L8(value: enLED_L10): void {
+
+        pins.i2cWriteBuffer(addr, buf)
+
+    }	
+/*##################################################################################################################################*/
 
     //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
     //% weight=3
@@ -654,9 +690,9 @@ namespace mbit_Robot {
         setPwm(15, 0, speed2);
         setPwm(14, 0, 0);
         //pins.digitalWritePin(DigitalPin.P16, 1);
-       // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
+       // pins.analogWritePin(AnalogPin.P1, 1023-speed); //Kontrola prędkości
 
-       // pins.analogWritePin(AnalogPin.P0, speed);//速度控制
+       // pins.analogWritePin(AnalogPin.P0, speed);//Kontrola prędkości
        // pins.digitalWritePin(DigitalPin.P8, 0);
     }
 
