@@ -72,7 +72,7 @@ namespace mbit_Display {
         ON = 0
     }
 
-    //% blockId=mbit_LED_L8 block="LED_L8|value %value"
+    //% blockId=mbit_LED_L8 block="LED_L8|%value"
     //% weight=3
     //% blockGap=8
     //% color="#26cfed"
@@ -90,15 +90,7 @@ namespace mbit_Display {
         ON = 0
     }
 
-    //% blockId=mbit_LED_L9 block="LED_L9|value %value"
-    //% weight=3
-    //% blockGap=8
-    //% color="#26cfed"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    
-    export function LED_L9(value: enLED_L9): void {
-	setPwm(7 0, value);    
-    }	
+	
 	
 /*##################################################################################################################################*/
 
