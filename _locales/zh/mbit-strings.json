@@ -3,6 +3,7 @@
   "mbit_显示类.LED1|block": "LED灯|引脚 %pin|状态 %value",
   "mbit_显示类.LED2|block": "LED灯|引脚 %pin|亮度 %value",
   "mbit_显示类.BreathLED|block": "呼吸灯|引脚 %pin",
+  "mbit_显示类.LED_L8|block": "蓝色 LED|状态 %value",
   "mbit_显示类.RGB|block": "RGB七彩灯|引脚R %pin1|引脚G %pin2|引脚B %pin3|红色 %value1|绿色 %value2|蓝色 %value3",
   "mbit_显示类.RGB2|block": "RGB七彩灯|引脚R %pin1|引脚G %pin2|引脚B %pin3|显示 %value",
 
