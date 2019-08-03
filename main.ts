@@ -54,8 +54,8 @@ namespace mbit_Display {
     //% blockGap=8
     //% color="#C814B8"
     //% value.min=0 value.max=255
-    //% name.fieldEditor="gridpicker" 
-    //% name.fieldOptions.columns=2
+    //% mbit_LED2.fieldEditor="gridpicker" 
+    //% mbit_LED2.fieldOptions.columns=2
     export function LED2(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value * 1024 / 256);
@@ -66,7 +66,8 @@ namespace mbit_Display {
     //% weight=3
     //% blockGap=8
     //% color="#C814B8"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=3
+    //% name.fieldEditor="gridpicker" 
+    //% name.fieldOptions.columns=3
     export function BreathLED(pin: AnalogPin): void {
 
         for (let i: number = 0; i < 1023; i++) {
@@ -86,7 +87,7 @@ namespace mbit_Display {
 //*###################################################################################################################################
 //##  testy kaktusa z niebieskimi ledami L8, L9, L10  ################################################################################
 //###################################################################################################################################*
-
+/*
 	export enum enLED_L8 {
         
         //% blockId="OFF" block="off"
@@ -95,8 +96,6 @@ namespace mbit_Display {
         ON = 1024
     }
 
-//namespace sample {
-	
     //% blockId=mbit_LED_L8 block="LED_L8|value %value"
     //% weight=2
     //% blockGap=8
@@ -108,8 +107,8 @@ namespace mbit_Display {
     export function onLED_L8(value: enLED_L8): void {
 	setPwm(6, 0, value);    //channel LED, ?,PWM value
     }
-//}
 
+*/
 //###################################################################################################################################
 
 
