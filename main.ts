@@ -11,11 +11,11 @@ load dependency
 
 //% color="#C814B8" weight=25 icon="\uf1d4"
 namespace mbit_Display {
-    
+
     export enum enColor {
 
         //% blockId="OFF" block="off"
-        OFF = 0,
+        OFF=0,
         //% blockId="Red" block="red"
         Red,
         //% blockId="Green" block="green"
@@ -32,12 +32,13 @@ namespace mbit_Display {
         Yellow,
 
     }
+
     export enum enLED1 {
         
         //% blockId="OFF" block="off"
-        OFF = 0,
+        OFF=0,
         //% blockId="ON" block="on"
-        ON =1
+        ON=1
     }
 
     //% blockId=mbit_LED1
@@ -48,9 +49,9 @@ namespace mbit_Display {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=2
-//    //% value.fieldEditor="gridpicker"
-//    //% value.fieldOptions.width=200
-//    //% value.fieldOptions.columns=1
+    //% value.fieldEditor="gridpicker"
+    //% value.fieldOptions.width=200
+    //% value.fieldOptions.columns=1
     export function fLED1(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
