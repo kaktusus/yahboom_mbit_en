@@ -48,9 +48,9 @@ namespace mbit_Display {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=2
-    //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=200
-    //% value.fieldOptions.columns=1
+//    //% value.fieldEditor="gridpicker"
+//    //% value.fieldOptions.width=200
+//    //% value.fieldOptions.columns=1
     export function fLED1(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
