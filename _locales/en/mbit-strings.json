@@ -3,6 +3,7 @@
   "mbit_Display.LED1|block": "LED|Pin %pin|state %value",
   "mbit_Display.LED2|block": "LED|Pin %pin|lightness %value",
   "mbit_Display.BreathLED|block": "breath light|port %pin",
+  "mbit_Display.LED_L8|block": "blue LED|state %value",
   "mbit_Display.RGB|block": "RGB LED|portR %pin1|portG %pin2|portB %pin3|red %value1|green %value2|blue %value3",
   "mbit_Display.RGB2|block": "RGB LED|portR %pin1|portG %pin2|portB %pin3|Display %value",
 
