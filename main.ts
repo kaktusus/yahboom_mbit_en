@@ -95,18 +95,20 @@ namespace mbit_Display {
         ON = 1024
     }
 
+namespace sample {
+	
     //% blockId=mbit_LED_L8 block="LED_L8|value %value"
     //% weight=2
     //% blockGap=8
     //% color="#26cfed"
-    //% LED_L8.fieldEditor="gridpicker" 
-    //% LED_L8.fieldOptions.width=220
-    //% LED_L8.fieldOptions.columns=1
+    //% mbit_LED_L8.fieldEditor="gridpicker" 
+    //% mbit_LED_L8.fieldOptions.width=220
+    //% mbit_LED_L8.fieldOptions.columns=1
 
-    export function LED_L8(value: enLED_L8): void {
+    export function onLED_L8(value: enLED_L8): void {
 	setPwm(6, 0, value);    //channel LED, ?,PWM value
     }
-
+}
 
 //###################################################################################################################################
 
