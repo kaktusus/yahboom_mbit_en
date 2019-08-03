@@ -42,7 +42,7 @@ namespace mbit_Display {
     //% weight=5
     //% blockGap=8
     //% color="#C814B8"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=2
     export function LED1(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
@@ -98,7 +98,9 @@ namespace mbit_Display {
     //% weight=2
     //% blockGap=8
     //% color="#26cfed"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% enLED_L8.fieldEditor="gridpicker" 
+    //% enLED_L8.fieldOptions.width=120
+    //% enLED_L8.fieldOptions.columns=1
 
     export function LED_L8(value: enLED_L8): void {
 	setPwm(6, 0, value);    //channel LED, ?,PWM value
