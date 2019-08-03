@@ -82,6 +82,34 @@ namespace mbit_Display {
 
     }
 
+//*###################################################################################################################################
+//##  testy kaktusa z niebieskimi ledami L8, L9, L10  ################################################################################
+//###################################################################################################################################*
+
+	export enum enLED_L8 {
+        
+        //% blockId="OFF" block="off"
+        OFF = 4095, //0-4095
+        //% blockId="ON" block="on"
+        ON = 1024
+    }
+
+    //% blockId=mbit_LED_L8 block="LED_L8|value %value"
+    //% weight=2
+    //% blockGap=8
+    //% color="#26cfed"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+
+    export function LED_L8(value: enLED_L8): void {
+	setPwm(6, 0, value);    //channel LED, ?,PWM value
+    }
+
+
+
+
+//###################################################################################################################################
+
+
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
     //% weight=2
     //% blockGap=8
