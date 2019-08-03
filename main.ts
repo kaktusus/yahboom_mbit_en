@@ -43,7 +43,7 @@ namespace mbit_Display {
     //% blockGap=8
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=2
-    export function LED1(pin: DigitalPin, value: enLED1): void {
+    export function fLED1(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
 
@@ -55,22 +55,23 @@ namespace mbit_Display {
     //% blockGap=8
     //% color="#C814B8"
     //% value.min=0 value.max=255
-    //% LED2.fieldEditor="gridpicker" 
-    //% LED2.fieldOptions.width=220
-    //% LED2.fieldOptions.columns=2
-    export function onLED2(pin: AnalogPin, value: number): void {
+    //% pin.fieldEditor="gridpicker" 
+    //% pin.fieldOptions.width=220
+    //% pin.fieldOptions.columns=2
+    export function fLED2(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value * 1024 / 256);
 
     }
 
-    //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
+    //% blockId=mbit_BreathLED 
+    //% block="BreathLED|pin %pin"
     //% weight=3
     //% blockGap=8
     //% color="#C814B8"
-    //% name.fieldEditor="gridpicker" 
-    //% name.fieldOptions.columns=3
-    export function BreathLED(pin: AnalogPin): void {
+    //% pin.fieldEditor="gridpicker" 
+    //% pin.fieldOptions.columns=3
+    export function fBreathLED(pin: AnalogPin): void {
 
         for (let i: number = 0; i < 1023; i++) {
             pins.analogWritePin(pin, i);
@@ -89,7 +90,7 @@ namespace mbit_Display {
 //*###################################################################################################################################
 //##  testy kaktusa z niebieskimi ledami L8, L9, L10  ################################################################################
 //###################################################################################################################################*
-/*
+
 	export enum enLED_L8 {
         
         //% blockId="OFF" block="off"
@@ -98,19 +99,20 @@ namespace mbit_Display {
         ON = 1024
     }
 
-    //% blockId=mbit_LED_L8 block="LED_L8|value %value"
+    //% blockId=mbit_LED_L8 
+    //% block="LED_L8| %value"
     //% weight=2
     //% blockGap=8
     //% color="#26cfed"
-    //% enLED_L8.fieldEditor="gridpicker" 
-    //% enLED_L8.fieldOptions.width=220
-    //% enLED_L8.fieldOptions.columns=1
+    //% LED_L8.fieldEditor="gridpicker" 
+    //% LED_L8.fieldOptions.width=220
+    //% LED_L8.fieldOptions.columns=1
 
-    export function onLED_L8(value: enLED_L8): void {
-	setPwm(6, 0, value);    //channel LED, ?,PWM value
+    export function onLED_L8(valuePWM: enLED_L8): void {
+	setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
     }
 
-*/
+
 //###################################################################################################################################
 
 
