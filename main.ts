@@ -56,9 +56,9 @@ namespace mbit_Display {
     //% color="#C814B8"
     //% value.min=0 value.max=255
     //% LED2.fieldEditor="gridpicker" 
-    //% LED2.fieldOptions.width=120
+    //% LED2.fieldOptions.width=220
     //% LED2.fieldOptions.columns=2
-    export function LED2(pin: AnalogPin, value: number): void {
+    export function onLED2(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value * 1024 / 256);
 
