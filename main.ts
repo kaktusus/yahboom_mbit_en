@@ -589,7 +589,7 @@ namespace mbit_Robot {
     let initialized = false
     let yahStrip: neopixel.Strip;
 
-    export enum enLED_blue {
+    export enum enLED_Blue {
         
         //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
@@ -1040,13 +1040,14 @@ namespace mbit_Robot {
     //% weight=101
     //% blockGap=8
     //% color="#932bb5"
+    //% valuePWM.defl=OFF
     //% valuePWM.fieldEditor="gridpicker"
     //% valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L8(valuePWM: enLED_Blue): void {
 
-        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+        setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
@@ -1060,7 +1061,7 @@ namespace mbit_Robot {
 
     export function fLED_L9(valuePWM: enLED_Blue): void {
 
-        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+        setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
