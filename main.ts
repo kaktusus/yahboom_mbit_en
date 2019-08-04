@@ -15,21 +15,21 @@ namespace mbit_Display {
 
     export enum enColor {
 
-        //% blockId="OFF" block="off"
+        //% blockId="OFF" block="Off"
         OFF=0,
-        //% blockId="Red" block="red"
+        //% blockId="Red" block="Red"
         Red,
-        //% blockId="Green" block="green"
+        //% blockId="Green" block="Green"
         Green,
-        //% blockId="Blue" block="blue"
+        //% blockId="Blue" block="Blue"
         Blue,
-        //% blockId="White" block="white"
+        //% blockId="White" block="White"
         White,
-        //% blockId="Cyan" block="cyan"
+        //% blockId="Cyan" block="Cyan"
         Cyan,
-        //% blockId="Pinkish" block="magenta"
+        //% blockId="Pinkish" block="Magenta"
         Pinkish,
-        //% blockId="Yellow" block="yellow"
+        //% blockId="Yellow" block="Yellow"
         Yellow
 
     }
@@ -73,9 +73,6 @@ namespace mbit_Display {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
- //   //% value.fieldEditor="gridpicker"
- //   //% value.fieldOptions.width=220
- //   //% value.fieldOptions.columns=1
 
     export function fLED2(pin: AnalogPin, value: number): void {
 
