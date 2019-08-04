@@ -60,8 +60,7 @@ namespace mbit_Display {
     //% blockId=mbit_LED1
     //% block="LED|connected to %pin|state on %value"
     //% weight=60
-    //% blockGap=8
-    //% color="#C814B8"
+    //% blockGap=8 color="#C814B8"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
@@ -80,8 +79,7 @@ namespace mbit_Display {
     //% blockId=mbit_LED2
     //% block="LED|connected to %pin|state on %value"
     //% weight=59
-    //% blockGap=8
-    //% color="#C814B8"
+    //% blockGap=8 color="#C814B8"
     //% value.min=0 value.max=255
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=220
@@ -98,8 +96,7 @@ namespace mbit_Display {
     //% blockId=mbit_BreathLED
     //% block="Breath LED|connected to %pin"
     //% weight=58
-    //% blockGap=8
-    //% color="#C814B8"
+    //% blockGap=8 color="#C814B8"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
@@ -126,10 +123,10 @@ namespace mbit_Display {
 
 
 
-    //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
+    //% blockId=mbit_LED_L8
+    //% block="blue LED_L8 | state on %value"
     //% weight=57
-    //% blockGap=8
-    //% color="#932bb5"
+    //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
     //% valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
@@ -140,10 +137,10 @@ namespace mbit_Display {
 
     }
 
-    //% blockId=mbit_LED_L9 block="blue LED_L9| %value"
+    //% blockId=mbit_LED_L9
+....//% block="blue LED_L9 | %value"
     //% weight=56
-    //% blockGap=8
-    //% color="#932bb5"
+    //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
     //% valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
@@ -161,8 +158,7 @@ namespace mbit_Display {
     //% blockId=mbit_RGB
     //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
     //% weight=55
-    //% blockGap=8
-    //% color="#C814B8"
+    //% blockGap=8 color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
     //% pin1.fieldOptions.width=220 pin2.fieldOptions.width=220 pin3.fieldOptions.width=220
@@ -181,8 +177,7 @@ namespace mbit_Display {
     //% blockId=mbit_RGB2
     //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
     //% weight=54
-    //% blockGap=8
-    //% color="#C814B8"
+    //% blockGap=8 color="#C814B8"
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
     //% pin1.fieldOptions.width=200 pin2.fieldOptions.width=200 pin3.fieldOptions.width=200
     //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
@@ -589,16 +584,6 @@ namespace mbit_Robot {
     let initialized = false
     let yahStrip: neopixel.Strip;
 
-/*
-    export enum enLED_Blue {
-        
-        //% blockId="OFF" block="Off"
-        OFF=4095, //0-4095
-        //% blockId="ON" block="On"
-        ON=1024
-    }
-
-*/
     export enum enColor {
 
         //% blockId="OFF" block="light Off"
@@ -1032,46 +1017,6 @@ namespace mbit_Robot {
 
     }
 
-//*****************************************************************************************************************************************
-//**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
-//*****************************************************************************************************************************************
-
-/*
-
-    //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
-    //% weight=101
-    //% blockGap=8
-    //% color="#932bb5"
-    //% valuePWM.defl=OFF
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
-    //% valuePWM.fieldOptions.columns=1
-
-    export function fLED_L8(valuePWM: enLED_Blue): void {
-
-        setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
-
-    }
-
-    //% blockId=mbit_LED_L9 block="blue LED_L9| %value"
-    //% weight=100
-    //% blockGap=8
-    //% color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
-    //% valuePWM.fieldOptions.columns=1
-
-    export function fLED_L9(valuePWM: enLED_Blue): void {
-
-        setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
-
-    }
-
-*/
-//*****************************************************************************************************************************************
-
-
-//*****************************************************************************************************************************************
 
     //% blockId=mbit_RGB_Car_Program
     //% block="RGB_Car_Program"
@@ -1088,12 +1033,12 @@ namespace mbit_Robot {
         return yahStrip;  
     }
 
-
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_ultrasonic_car
     //%block="ultrasonic return distance(cm)"
     //% color="#006400"
-    //% weight=97
+    //% weight=98
     //% blockGap=10
 // excluded by a kaktus   //% name.fieldEditor="gridpicker" name.fieldOptions.columns=3
 
