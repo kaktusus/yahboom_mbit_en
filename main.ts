@@ -37,6 +37,8 @@ namespace mbit_Display {
 
     }
 
+//*****************************************************************************************************************************************
+
     export enum enLED1 {
 
         //% blockId="OFF" block="Off"
@@ -45,19 +47,20 @@ namespace mbit_Display {
         ON=1
     }
 
+/*
     export enum enLED_blue {
         
         //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
         //% blockId="ON" block="On"
         ON=1024
-    }	
+    }
+*/
 
-//*****************************************************************************************************************************************
-	
     //% blockId=mbit_LED1
     //% block="LED|connected to %pin|state on %value"
-    //% blockGap=8 weight=56
+    //% weight=60
+    //% blockGap=8
     //% color="#C814B8"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=220
@@ -76,7 +79,8 @@ namespace mbit_Display {
 
     //% blockId=mbit_LED2
     //% block="LED|connected to %pin|state on %value"
-    //% blockGap=8 weight=55
+    //% weight=59
+    //% blockGap=8
     //% color="#C814B8"
     //% value.min=0 value.max=255
     //% pin.fieldEditor="gridpicker"
@@ -93,7 +97,8 @@ namespace mbit_Display {
 
     //% blockId=mbit_BreathLED
     //% block="Breath LED|connected to %pin"
-    //% blockGap=8 weight=54
+    //% weight=58
+    //% blockGap=8
     //% color="#C814B8"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=220
@@ -119,10 +124,11 @@ namespace mbit_Display {
 //**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
 //*****************************************************************************************************************************************
 
+/*
 
-
-    //% blockId=mbit_LED_L8 block="blue LED_L8|state on %value"
-    //% blockGap=8 weight=53
+    //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
+    //% weight=57
+    //% blockGap=8
     //% color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
     //% valuePWM.fieldOptions.width=260
@@ -134,15 +140,28 @@ namespace mbit_Display {
 
     }
 
+    //% blockId=mbit_LED_L9 block="blue LED_L9| %value"
+    //% weight=56
+    //% blockGap=8
+    //% color="#932bb5"
+    //% valuePWM.fieldEditor="gridpicker"
+    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.columns=1
 
+    export function fLED_L9(valuePWM: enLED_Blue): void {
 
+        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
 
+    }
+
+*/
 //*****************************************************************************************************************************************
 
 
     //% blockId=mbit_RGB
-    //% block="RGB|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
-    //% blockGap=8 weight=51
+    //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
+    //% weight=55
+    //% blockGap=8
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
@@ -161,7 +180,8 @@ namespace mbit_Display {
 
     //% blockId=mbit_RGB2
     //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
-    //% blockGap=8 weight=50
+    //% weight=54
+    //% blockGap=8
     //% color="#C814B8"
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
     //% pin1.fieldOptions.width=200 pin2.fieldOptions.width=200 pin3.fieldOptions.width=200
@@ -569,6 +589,14 @@ namespace mbit_Robot {
     let initialized = false
     let yahStrip: neopixel.Strip;
 
+    export enum enLED_blue {
+        
+        //% blockId="OFF" block="Off"
+        OFF=4095, //0-4095
+        //% blockId="ON" block="On"
+        ON=1024
+    }
+
     export enum enColor {
 
         //% blockId="OFF" block="light Off"
@@ -913,7 +941,7 @@ namespace mbit_Robot {
 
     //% blockId=mbit_RGB_Car_Big2
     //% block="RGB_Car_Big2|light colour %value"
-    //% weight=101
+    //% weight=103
     //% blockGap=10
     //% color="#C814B8"
     //% value.fieldEditor="gridpicker"
@@ -978,7 +1006,7 @@ namespace mbit_Robot {
 
     //% blockId=mbit_RGB_Car_Big
     //% block="RGB_Car_Big|value 1 %value1|value 2 %value2|value 3 %value3"
-    //% weight=100
+    //% weight=102
     //% blockGap=10
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
@@ -1001,6 +1029,44 @@ namespace mbit_Robot {
         setPwm(2, 0, B);
 
     }
+
+//*****************************************************************************************************************************************
+//**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
+//*****************************************************************************************************************************************
+
+
+
+    //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
+    //% weight=101
+    //% blockGap=8
+    //% color="#932bb5"
+    //% valuePWM.fieldEditor="gridpicker"
+    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.columns=1
+
+    export function fLED_L8(valuePWM: enLED_Blue): void {
+
+        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+
+    }
+
+    //% blockId=mbit_LED_L9 block="blue LED_L9| %value"
+    //% weight=100
+    //% blockGap=8
+    //% color="#932bb5"
+    //% valuePWM.fieldEditor="gridpicker"
+    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.columns=1
+
+    export function fLED_L9(valuePWM: enLED_Blue): void {
+
+        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+
+    }
+
+
+//*****************************************************************************************************************************************
+
 
 //*****************************************************************************************************************************************
 
