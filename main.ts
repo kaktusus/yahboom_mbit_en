@@ -46,7 +46,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_LED1
     //% block="LED1|connected to %pin|state on %value"
-    //% weight=6
+    //% weight=16
     //% blockGap=8
     //% color="#C814B8"
     //% pin.fieldEditor="gridpicker"
@@ -66,7 +66,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_LED2
     //% block="LED2|connected to %pin|state on %value"
-    //% weight=5
+    //% weight=14
     //% blockGap=8
     //% color="#C814B8"
     //% value.min=0 value.max=255
@@ -87,7 +87,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_BreathLED 
     //% block="BreathLED|connected to %pin"
-    //% weight=4
+    //% weight=12
     //% blockGap=8
     //% color="#C814B8"
     //% pin.fieldEditor="gridpicker"
@@ -122,7 +122,7 @@ namespace mbit_Display {
     }
 
     //% blockId=mbit_LED_L8 block="LED_L8| %value"
-    //% weight=3
+    //% weight=10
     //% blockGap=8
     //% color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
@@ -139,7 +139,6 @@ namespace mbit_Display {
 
 
 //#########################################################################################################################################
-
 
     //% blockId=mbit_RGB
     //% block="RGB|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
