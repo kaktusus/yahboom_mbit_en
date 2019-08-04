@@ -1,6 +1,7 @@
 /*
 Copyright (C): 2010-2019, Shenzhen Yahboom Tech
 modified from liusen
+2019-08 -04 for the common good, the kaktus looked a little here.
 load dependency
 "mbit": "file:../pxt-mbit"
 */
@@ -34,7 +35,7 @@ namespace mbit_Display {
     }
 
     export enum enLED1 {
-        
+
         //% blockId="OFF" block="off"
         OFF=0,
         //% blockId="ON" block="on"
@@ -52,6 +53,7 @@ namespace mbit_Display {
     //% value.fieldEditor="gridpicker"
     //% value.fieldOptions.width=200
     //% value.fieldOptions.columns=1
+
     export function fLED1(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
@@ -98,7 +100,7 @@ namespace mbit_Display {
             control.waitMicros(1000);
         }
 
-    }
+
 //*########################################################################################################################################
 //##  testy kaktusa z niebieskimi ledami L8, L9, L10  #####################################################################################
 //########################################################################################################################################*
@@ -146,6 +148,7 @@ namespace mbit_Display {
         pins.analogWritePin(pin3, value3 * 1024 / 256);
 
     }
+
     //% blockId=mbit_RGB2
     //% block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value %value"
     //% weight=1
@@ -208,7 +211,7 @@ namespace mbit_Display {
         }
 
     }
-   
+
 }
 /*****************************************************************************************************************************************
  *  Sensors Class (Klasa czujników)  *****************************************************************************************************
