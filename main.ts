@@ -1161,7 +1161,6 @@ namespace mbit_Display {
         }
     }
 
-
 //*****************************************************************************************************************************************
 //**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
 //*****************************************************************************************************************************************
@@ -1194,9 +1193,7 @@ namespace mbit_Display {
 
     }
 
-
 //*****************************************************************************************************************************************
-
 
     //% blockId=mbit_RGB
     //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
@@ -1206,7 +1203,7 @@ namespace mbit_Display {
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
     //% pin1.fieldOptions.width=220 pin2.fieldOptions.width=220 pin3.fieldOptions.width=220
     //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
-    //% pin1.defl=P0 pin2.defl=P1 pin3.defl=P2
+    //% pin1.defl=0 pin2.defl=1 pin3.defl=2
 
     export function fRGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
 
