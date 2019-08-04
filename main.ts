@@ -112,7 +112,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_RGB
     //% block="RGB|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
-    //% weight=5
+    //% weight=6
     //% blockGap=8
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
@@ -132,7 +132,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_RGB2
     //% block="RGB|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
-    //% weight=3
+    //% weight=6
     //% blockGap=8
     //% color="#C814B8"
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
@@ -762,7 +762,7 @@ namespace mbit_Robot {
         if (speed2 <= 350) {
             speed2 = 350
         }
-        
+
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
@@ -792,7 +792,7 @@ namespace mbit_Robot {
         if (speed2 <= 350) {
             speed2 = 350
         }
-        
+
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
@@ -806,7 +806,7 @@ namespace mbit_Robot {
     }
 
     function Car_stop() {
-       
+
         setPwm(12, 0, 0);
         setPwm(13, 0, 0);
 
@@ -833,8 +833,8 @@ namespace mbit_Robot {
         }
         if (speed2 <= 350) {
             speed2 = 350
-        }        
-        
+        }
+
         setPwm(12, 0, 0);
         setPwm(13, 0, speed1);
 
@@ -863,8 +863,8 @@ namespace mbit_Robot {
         }
         if (speed2 <= 350) {
             speed2 = 350
-        }    
-            
+        }
+
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
@@ -888,8 +888,9 @@ namespace mbit_Robot {
     //% blockGap=10
     //% color="#C814B8"
     //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=200
+    //% value.fieldOptions.width=220
     //% value.fieldOptions.columns=2
+
     export function fRGB_Car_Big2(value: enColor): void {
 
         switch (value) {
@@ -950,15 +951,6 @@ namespace mbit_Robot {
     //% blockGap=10
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
-    //% value1.fieldEditor="gridpicker"
-    //% value2.fieldEditor="gridpicker"
-    //% value3.fieldEditor="gridpicker"
-    //% value1.fieldOptions.width=200
-    //% value2.fieldOptions.width=200
-    //% value3.fieldOptions.width=200
-    //% value1.fieldOptions.columns=1
-    //% value2.fieldOptions.columns=1
-    //% value3.fieldOptions.columns=1
 
     export function fRGB_Car_Big(value1: number, value2: number, value3: number): void {
 
@@ -984,7 +976,7 @@ namespace mbit_Robot {
     //% weight=99
     //% blockGap=10
     //% color="#C814B8"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+// excluded by a kaktus    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
 
     export function fRGB_Car_Program(): neopixel.Strip {
 
@@ -1008,7 +1000,7 @@ namespace mbit_Robot {
     }
 
     //% blockId=mbit_LED_L8 block="LED_L8| %value"
-    //% weight=10
+    //% weight=98
     //% blockGap=8
     //% color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
@@ -1016,9 +1008,9 @@ namespace mbit_Robot {
     //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L8(valuePWM: enLED_Blue): void {
-    
-    setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
-    
+
+        setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+
     }
 
     //% blockId=mbit_LED_L9 block="LED_L9| %value"
@@ -1030,9 +1022,9 @@ namespace mbit_Robot {
     //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L9(valuePWM: enLED_Blue): void {
-    
-    setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
-    
+
+        setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+
     }
 
 //#########################################################################################################################################
@@ -1040,7 +1032,7 @@ namespace mbit_Robot {
     //% blockId=mbit_ultrasonic_car
     //%block="ultrasonic return distance(cm)"
     //% color="#006400"
-    //% weight=98
+    //% weight=97
     //% blockGap=10
 // excluded by a kaktus   //% name.fieldEditor="gridpicker" name.fieldOptions.columns=3
 
@@ -1268,4 +1260,5 @@ namespace mbit_Robot {
             case CarState.Car_SpinRight: Car_spinright(speed1, speed2); break;
         }
     }
+
 }
