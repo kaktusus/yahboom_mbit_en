@@ -47,15 +47,15 @@ namespace mbit_Display {
         ON=1
     }
 
-/*
-    export enum enLED_blue {
+
+    export enum enLED_Blue {
         
         //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
         //% blockId="ON" block="On"
         ON=1024
     }
-*/
+
 
     //% blockId=mbit_LED1
     //% block="LED|connected to %pin|state on %value"
@@ -124,7 +124,7 @@ namespace mbit_Display {
 //**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
 //*****************************************************************************************************************************************
 
-/*
+
 
     //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
     //% weight=57
@@ -154,7 +154,7 @@ namespace mbit_Display {
 
     }
 
-*/
+
 //*****************************************************************************************************************************************
 
 
@@ -589,6 +589,7 @@ namespace mbit_Robot {
     let initialized = false
     let yahStrip: neopixel.Strip;
 
+/*
     export enum enLED_Blue {
         
         //% blockId="OFF" block="Off"
@@ -597,6 +598,7 @@ namespace mbit_Robot {
         ON=1024
     }
 
+*/
     export enum enColor {
 
         //% blockId="OFF" block="light Off"
@@ -1034,7 +1036,7 @@ namespace mbit_Robot {
 //**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
 //*****************************************************************************************************************************************
 
-
+/*
 
     //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
     //% weight=101
@@ -1065,7 +1067,7 @@ namespace mbit_Robot {
 
     }
 
-
+*/
 //*****************************************************************************************************************************************
 
 
