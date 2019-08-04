@@ -37,7 +37,6 @@ namespace mbit_Display {
 
     }
 
-//*****************************************************************************************************************************************
 
     export enum enLED1 {
 
@@ -47,6 +46,16 @@ namespace mbit_Display {
         ON=1
     }
 
+    export enum enLED_blue {
+        
+        //% blockId="OFF" block="Off"
+        OFF=4095, //0-4095
+        //% blockId="ON" block="On"
+        ON=1024
+    }	
+
+//*****************************************************************************************************************************************
+	
     //% blockId=mbit_LED1
     //% block="LED|connected to %pin|state on %value"
     //% blockGap=8
@@ -111,13 +120,7 @@ namespace mbit_Display {
 //**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
 //*****************************************************************************************************************************************
 
-    export enum enLED_blue {
-        
-        //% blockId="OFF" block="Off"
-        OFF=4095, //0-4095
-        //% blockId="ON" block="On"
-        ON=1024
-    }
+
 
     //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
     //% blockGap=8
