@@ -30,28 +30,30 @@ namespace mbit_Display {
         //% blockId="Pinkish" block="magenta"
         Pinkish,
         //% blockId="Yellow" block="yellow"
-        Yellow,
+        Yellow
 
     }
 
+//*****************************************************************************************************************************************
+
     export enum enLED1 {
 
-        //% blockId="OFF" block="off"
+        //% blockId="OFF" block="Off"
         OFF=0,
-        //% blockId="ON" block="on"
+        //% blockId="ON" block="On"
         ON=1
     }
 
     //% blockId=mbit_LED1
-    //% block="LED1|pin %pin|value %value"
+    //% block="LED1|connected to %pin|state on %value"
     //% weight=6
     //% blockGap=8
     //% color="#C814B8"
     //% pin.fieldEditor="gridpicker"
-    //% pin.fieldOptions.width=200
-    //% pin.fieldOptions.columns=2
+    //% pin.fieldOptions.width=220
+    //% pin.fieldOptions.columns=3
     //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=200
+    //% value.fieldOptions.width=220
     //% value.fieldOptions.columns=1
 
     export function fLED1(pin: DigitalPin, value: enLED1): void {
@@ -60,32 +62,38 @@ namespace mbit_Display {
 
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_LED2
-    //% block="LED2|pin %pin|value %value"
+    //% block="LED2|connected to %pin|state on %value"
     //% weight=5
     //% blockGap=8
     //% color="#C814B8"
     //% value.min=0 value.max=255
-    //% pin.fieldEditor="gridpicker" 
-    //% pin.fieldOptions.width=200
+    //% pin.fieldEditor="gridpicker"
+    //% pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
     //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=200
+    //% value.fieldOptions.width=220
     //% value.fieldOptions.columns=1
+
     export function fLED2(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value * 1024 / 256);
 
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_BreathLED 
-    //% block="BreathLED|pin %pin"
+    //% block="BreathLED|connected to %pin"
     //% weight=4
     //% blockGap=8
     //% color="#C814B8"
     //% pin.fieldEditor="gridpicker"
-    //% pin.fieldOptions.width=200
+    //% pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
+
     export function fBreathLED(pin: AnalogPin): void {
 
         for (let i: number = 0; i < 1023; i++) {
@@ -99,7 +107,7 @@ namespace mbit_Display {
             //basic.pause(1);
             control.waitMicros(1000);
         }
-
+    }
 
 //*########################################################################################################################################
 //##  testy kaktusa z niebieskimi ledami L8, L9, L10  #####################################################################################
@@ -107,9 +115,9 @@ namespace mbit_Display {
 
     export enum enLED_L8 {
         
-        //% blockId="OFF" block="off"
+        //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
-        //% blockId="ON" block="on"
+        //% blockId="ON" block="On"
         ON=1024
     }
 
@@ -117,12 +125,14 @@ namespace mbit_Display {
     //% weight=3
     //% blockGap=8
     //% color="#932bb5"
-    //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=200
-    //% value.fieldOptions.columns=1
+    //% valuePWM.fieldEditor="gridpicker"
+    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L8(valuePWM: enLED_L8): void {
+    
     setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+    
     }
 
 
@@ -132,13 +142,13 @@ namespace mbit_Display {
 
 
     //% blockId=mbit_RGB
-    //% block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
-    //% weight=2
+    //% block="RGB|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
+    //% weight=5
     //% blockGap=8
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
-    //% pin1.fieldOptions.width=200 pin2.fieldOptions.width=200 pin3.fieldOptions.width=200
+    //% pin1.fieldOptions.width=220 pin2.fieldOptions.width=220 pin3.fieldOptions.width=220
     //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
 
     export function fRGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
@@ -149,14 +159,18 @@ namespace mbit_Display {
 
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_RGB2
-    //% block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value %value"
-    //% weight=1
+    //% block="RGB|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
+    //% weight=3
     //% blockGap=8
     //% color="#C814B8"
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
     //% pin1.fieldOptions.width=200 pin2.fieldOptions.width=200 pin3.fieldOptions.width=200
     //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
+    //% value.fieldEditor="gridpicker" value.fieldOptions.width=320 value.fieldOptions.columns=3
+
     export function fRGB2(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, value: enColor): void {
 
         switch (value) {
@@ -209,7 +223,6 @@ namespace mbit_Display {
                 break;
             }
         }
-
     }
 
 }
