@@ -122,7 +122,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_RGB
     //% block="RGB|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
-    //% weight=15
+    //% weight=17
     //% blockGap=8
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
@@ -142,7 +142,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_RGB2
     //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
-    //% weight=14
+    //% weight=16
     //% blockGap=8
     //% color="#C814B8"
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
