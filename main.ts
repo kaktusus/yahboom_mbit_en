@@ -73,9 +73,9 @@ namespace mbit_Display {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
-    //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=220
-    //% value.fieldOptions.columns=1
+ //   //% value.fieldEditor="gridpicker"
+ //   //% value.fieldOptions.width=220
+ //   //% value.fieldOptions.columns=1
 
     export function fLED2(pin: AnalogPin, value: number): void {
 
