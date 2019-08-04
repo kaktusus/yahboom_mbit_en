@@ -86,7 +86,7 @@ namespace mbit_Display {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_BreathLED
-    //% block="BreathLED|connected to %pin"
+    //% block="Breath LED|connected to %pin"
     //% weight=18
     //% blockGap=8
     //% color="#C814B8"
@@ -110,47 +110,11 @@ namespace mbit_Display {
     }
 
 
-//*########################################################################################################################################
-//##  testy kaktusa z niebieskimi ledami L8, L9, L10  #####################################################################################
-//########################################################################################################################################*
+//*****************************************************************************************************************************************
+//**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
+//*****************************************************************************************************************************************
 
-    export enum enLED_blue {
-        
-        //% blockId="OFF" block="Off"
-        OFF=4095, //0-4095
-        //% blockId="ON" block="On"
-        ON=1024
-    }
 
-    //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
-    //% weight=17
-    //% blockGap=8
-    //% color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
-    //% valuePWM.fieldOptions.columns=1
-
-    export function fLED_L8(valuePWM: enLED_Blue): void {
-
-        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
-
-    }
-
-    //% blockId=mbit_LED_L9 block="blue LED_L9| %value"
-    //% weight=16
-    //% blockGap=8
-    //% color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
-    //% valuePWM.fieldOptions.columns=1
-
-    export function fLED_L9(valuePWM: enLED_Blue): void {
-
-        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
-
-    }
-
-//#########################################################################################################################################
 
 
 //*****************************************************************************************************************************************
