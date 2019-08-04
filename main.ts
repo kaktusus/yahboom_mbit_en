@@ -9,235 +9,6 @@ load dependency
 "mbit": "file:../pxt-mbit"
 */
 
-/*****************************************************************************************************************************************
- *  LED Class        *********************************************************************************************************************
- ****************************************************************************************************************************************/
-
-//% color="#C814B8" weight=25 icon="\uf1d4"
-namespace mbit_Display {
-
-    export enum enColor {
-
-        //% blockId="OFF" block="Off"
-        OFF=0,
-        //% blockId="Red" block="Red"
-        Red,
-        //% blockId="Green" block="Green"
-        Green,
-        //% blockId="Blue" block="Blue"
-        Blue,
-        //% blockId="White" block="White"
-        White,
-        //% blockId="Cyan" block="Cyan"
-        Cyan,
-        //% blockId="Pinkish" block="Magenta"
-        Pinkish,
-        //% blockId="Yellow" block="Yellow"
-        Yellow
-
-    }
-
-//*****************************************************************************************************************************************
-
-    export enum enLED1 {
-
-        //% blockId="OFF" block="Off"
-        OFF=0,
-        //% blockId="ON" block="On"
-        ON=1
-    }
-
-
-    export enum enLED_Blue {
-        
-        //% blockId="OFF" block="Off"
-        OFF=4095, //0-4095
-        //% blockId="ON" block="On"
-        ON=1024
-    }
-
-
-    //% blockId=mbit_LED1
-    //% block="LED|connected to %pin|state on %value"
-    //% weight=60
-    //% blockGap=8 color="#C814B8"
-    //% pin.fieldEditor="gridpicker"
-    //% pin.fieldOptions.width=220
-    //% pin.fieldOptions.columns=3
-    //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=220
-    //% value.fieldOptions.columns=1
-
-    export function fLED1(pin: DigitalPin, value: enLED1): void {
-
-        pins.digitalWritePin(pin, value);
-
-    }
-
-//*****************************************************************************************************************************************
-
-    //% blockId=mbit_LED2
-    //% block="LED|connected to %pin|state on %value"
-    //% weight=59
-    //% blockGap=8 color="#C814B8"
-    //% value.min=0 value.max=255
-    //% pin.fieldEditor="gridpicker"
-    //% pin.fieldOptions.width=220
-    //% pin.fieldOptions.columns=3
-
-    export function fLED2(pin: AnalogPin, value: number): void {
-
-        pins.analogWritePin(pin, value * 1024 / 256);
-
-    }
-
-//*****************************************************************************************************************************************
-
-    //% blockId=mbit_BreathLED
-    //% block="Breath LED|connected to %pin"
-    //% weight=58
-    //% blockGap=8 color="#C814B8"
-    //% pin.fieldEditor="gridpicker"
-    //% pin.fieldOptions.width=220
-    //% pin.fieldOptions.columns=3
-
-    export function fBreathLED(pin: AnalogPin): void {
-
-        for (let i: number = 0; i < 1023; i++) {
-            pins.analogWritePin(pin, i);
-            //basic.pause(1);
-            control.waitMicros(1000);
-        }
-        basic.pause(10);
-        for (let i: number = 1023; i > 0; i--) {
-            pins.analogWritePin(pin, i);
-            //basic.pause(1);
-            control.waitMicros(1000);
-        }
-    }
-
-
-//*****************************************************************************************************************************************
-//**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
-//*****************************************************************************************************************************************
-
-
-
-    //% blockId=mbit_LED_L8
-    //% block="blue LED_L8 | state on %value"
-    //% weight=57
-    //% blockGap=8 color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
-    //% valuePWM.fieldOptions.columns=1
-
-    export function fLED_L8(valuePWM: enLED_Blue): void {
-
-        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
-
-    }
-
-    //% blockId=mbit_LED_L9
-....//% block="blue LED_L9 | %value"
-    //% weight=56
-    //% blockGap=8 color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
-    //% valuePWM.fieldOptions.columns=1
-
-    export function fLED_L9(valuePWM: enLED_Blue): void {
-
-        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
-
-    }
-
-
-//*****************************************************************************************************************************************
-
-
-    //% blockId=mbit_RGB
-    //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
-    //% weight=55
-    //% blockGap=8 color="#C814B8"
-    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
-    //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
-    //% pin1.fieldOptions.width=220 pin2.fieldOptions.width=220 pin3.fieldOptions.width=220
-    //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
-
-    export function fRGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
-
-        pins.analogWritePin(pin1, value1 * 1024 / 256);
-        pins.analogWritePin(pin2, value2 * 1024 / 256);
-        pins.analogWritePin(pin3, value3 * 1024 / 256);
-
-    }
-
-//*****************************************************************************************************************************************
-
-    //% blockId=mbit_RGB2
-    //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
-    //% weight=54
-    //% blockGap=8 color="#C814B8"
-    //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
-    //% pin1.fieldOptions.width=200 pin2.fieldOptions.width=200 pin3.fieldOptions.width=200
-    //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
-    //% value.fieldEditor="gridpicker" value.fieldOptions.width=320 value.fieldOptions.columns=3
-
-    export function fRGB2(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, value: enColor): void {
-
-        switch (value) {
-            case enColor.OFF: {
-                pins.digitalWritePin(pin1, 0);
-                pins.digitalWritePin(pin2, 0);
-                pins.digitalWritePin(pin3, 0);
-                break;
-            }
-            case enColor.Red: {
-                pins.digitalWritePin(pin1, 1);
-                pins.digitalWritePin(pin2, 0);
-                pins.digitalWritePin(pin3, 0);
-                break;
-            }
-            case enColor.Green: {
-                pins.digitalWritePin(pin1, 0);
-                pins.digitalWritePin(pin2, 1);
-                pins.digitalWritePin(pin3, 0);
-                break;
-            }
-            case enColor.Blue: {
-                pins.digitalWritePin(pin1, 0);
-                pins.digitalWritePin(pin2, 0);
-                pins.digitalWritePin(pin3, 1);
-                break;
-            }
-            case enColor.White: {
-                pins.digitalWritePin(pin1, 1);
-                pins.digitalWritePin(pin2, 1);
-                pins.digitalWritePin(pin3, 1);
-                break;
-            }
-            case enColor.Cyan: {
-                pins.digitalWritePin(pin1, 0);
-                pins.digitalWritePin(pin2, 1);
-                pins.digitalWritePin(pin3, 1);
-                break;
-            }
-            case enColor.Pinkish: {
-                pins.digitalWritePin(pin1, 1);
-                pins.digitalWritePin(pin2, 0);
-                pins.digitalWritePin(pin3, 1);
-                break;
-            }
-            case enColor.Yellow: {
-                pins.digitalWritePin(pin1, 1);
-                pins.digitalWritePin(pin2, 1);
-                pins.digitalWritePin(pin3, 0);
-                break;
-            }
-        }
-    }
-
-}
 
 /*****************************************************************************************************************************************
  *  Sensors Class (Klasa czujników)  *****************************************************************************************************
@@ -1278,6 +1049,236 @@ namespace mbit_Robot {
             case CarState.Car_Stop: Car_stop(); break;
             case CarState.Car_SpinLeft: Car_spinleft(speed1, speed2); break;
             case CarState.Car_SpinRight: Car_spinright(speed1, speed2); break;
+        }
+    }
+
+}
+
+/*****************************************************************************************************************************************
+ *  LED Class        *********************************************************************************************************************
+ ****************************************************************************************************************************************/
+
+//% color="#C814B8" weight=25 icon="\uf1d4"
+namespace mbit_Display {
+
+    export enum enColor {
+
+        //% blockId="OFF" block="Off"
+        OFF=0,
+        //% blockId="Red" block="Red"
+        Red,
+        //% blockId="Green" block="Green"
+        Green,
+        //% blockId="Blue" block="Blue"
+        Blue,
+        //% blockId="White" block="White"
+        White,
+        //% blockId="Cyan" block="Cyan"
+        Cyan,
+        //% blockId="Pinkish" block="Magenta"
+        Pinkish,
+        //% blockId="Yellow" block="Yellow"
+        Yellow
+
+    }
+
+//*****************************************************************************************************************************************
+
+    export enum enLED0_1 {
+
+        //% blockId="OFF" block="Off"
+        OFF=0,
+        //% blockId="ON" block="On"
+        ON=1
+    }
+
+
+    export enum enLED_Blue {
+        
+        //% blockId="OFF" block="Off"
+        OFF=4095, //0-4095
+        //% blockId="ON" block="On"
+        ON=1024
+    }
+
+
+    //% blockId=mbit_LED1
+    //% block="LED|connected to %pin|state on %value"
+    //% weight=60
+    //% blockGap=8 color="#C814B8"
+    //% pin.fieldEditor="gridpicker"
+    //% pin.fieldOptions.width=220
+    //% pin.fieldOptions.columns=3
+    //% value.fieldEditor="gridpicker"
+    //% value.fieldOptions.width=220
+    //% value.fieldOptions.columns=1
+
+    export function fLED1(pin: DigitalPin, value: enLED0_1): void {
+
+        pins.digitalWritePin(pin, value);
+
+    }
+
+//*****************************************************************************************************************************************
+
+    //% blockId=mbit_LED2
+    //% block="LED|connected to %pin|state on %value"
+    //% weight=59
+    //% blockGap=8 color="#C814B8"
+    //% value.min=0 value.max=255
+    //% pin.fieldEditor="gridpicker"
+    //% pin.fieldOptions.width=220
+    //% pin.fieldOptions.columns=3
+
+    export function fLED2(pin: AnalogPin, value: number): void {
+
+        pins.analogWritePin(pin, value * 1024 / 256);
+
+    }
+
+//*****************************************************************************************************************************************
+
+    //% blockId=mbit_BreathLED
+    //% block="Breath LED|connected to %pin"
+    //% weight=58
+    //% blockGap=8 color="#C814B8"
+    //% pin.fieldEditor="gridpicker"
+    //% pin.fieldOptions.width=220
+    //% pin.fieldOptions.columns=3
+
+    export function fBreathLED(pin: AnalogPin): void {
+
+        for (let i: number = 0; i < 1023; i++) {
+            pins.analogWritePin(pin, i);
+            //basic.pause(1);
+            control.waitMicros(1000);
+        }
+        basic.pause(10);
+        for (let i: number = 1023; i > 0; i--) {
+            pins.analogWritePin(pin, i);
+            //basic.pause(1);
+            control.waitMicros(1000);
+        }
+    }
+
+
+//*****************************************************************************************************************************************
+//**    testy kaktusa z niebieskimi ledami L8, L9, L10    *********************************************************************************
+//*****************************************************************************************************************************************
+
+
+
+    //% blockId=mbit_LED_L8
+    //% block="blue LED_L8 | state on %value"
+    //% weight=57
+    //% blockGap=8 color="#932bb5"
+    //% valuePWM.fieldEditor="gridpicker"
+    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.columns=1
+
+    export function fLED_L8(valuePWM: enLED_Blue): void {
+
+        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+
+    }
+
+    //% blockId=mbit_LED_L9
+....//% block="blue LED_L9 | %value"
+    //% weight=56
+    //% blockGap=8 color="#932bb5"
+    //% valuePWM.fieldEditor="gridpicker"
+    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.columns=1
+
+    export function fLED_L9(valuePWM: enLED_Blue): void {
+
+        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+
+    }
+
+
+//*****************************************************************************************************************************************
+
+
+    //% blockId=mbit_RGB
+    //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
+    //% weight=55
+    //% blockGap=8 color="#C814B8"
+    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
+    //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
+    //% pin1.fieldOptions.width=220 pin2.fieldOptions.width=220 pin3.fieldOptions.width=220
+    //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
+
+    export function fRGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
+
+        pins.analogWritePin(pin1, value1 * 1024 / 256);
+        pins.analogWritePin(pin2, value2 * 1024 / 256);
+        pins.analogWritePin(pin3, value3 * 1024 / 256);
+
+    }
+
+//*****************************************************************************************************************************************
+
+    //% blockId=mbit_RGB2
+    //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
+    //% weight=54
+    //% blockGap=8 color="#C814B8"
+    //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
+    //% pin1.fieldOptions.width=200 pin2.fieldOptions.width=200 pin3.fieldOptions.width=200
+    //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
+    //% value.fieldEditor="gridpicker" value.fieldOptions.width=320 value.fieldOptions.columns=3
+
+    export function fRGB2(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, value: enColor): void {
+
+        switch (value) {
+            case enColor.OFF: {
+                pins.digitalWritePin(pin1, 0);
+                pins.digitalWritePin(pin2, 0);
+                pins.digitalWritePin(pin3, 0);
+                break;
+            }
+            case enColor.Red: {
+                pins.digitalWritePin(pin1, 1);
+                pins.digitalWritePin(pin2, 0);
+                pins.digitalWritePin(pin3, 0);
+                break;
+            }
+            case enColor.Green: {
+                pins.digitalWritePin(pin1, 0);
+                pins.digitalWritePin(pin2, 1);
+                pins.digitalWritePin(pin3, 0);
+                break;
+            }
+            case enColor.Blue: {
+                pins.digitalWritePin(pin1, 0);
+                pins.digitalWritePin(pin2, 0);
+                pins.digitalWritePin(pin3, 1);
+                break;
+            }
+            case enColor.White: {
+                pins.digitalWritePin(pin1, 1);
+                pins.digitalWritePin(pin2, 1);
+                pins.digitalWritePin(pin3, 1);
+                break;
+            }
+            case enColor.Cyan: {
+                pins.digitalWritePin(pin1, 0);
+                pins.digitalWritePin(pin2, 1);
+                pins.digitalWritePin(pin3, 1);
+                break;
+            }
+            case enColor.Pinkish: {
+                pins.digitalWritePin(pin1, 1);
+                pins.digitalWritePin(pin2, 0);
+                pins.digitalWritePin(pin3, 1);
+                break;
+            }
+            case enColor.Yellow: {
+                pins.digitalWritePin(pin1, 1);
+                pins.digitalWritePin(pin2, 1);
+                pins.digitalWritePin(pin3, 0);
+                break;
+            }
         }
     }
 
