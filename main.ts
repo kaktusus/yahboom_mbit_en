@@ -1,7 +1,10 @@
 /*
-Copyright (C): 2010-2019, Shenzhen Yahboom Tech
+creator: 2010-2019, Shenzhen Yahboom Tech
 modified from liusen
-2019-08-04 for the common good, the kaktus looked a little here.
+
+2019-08, for the common good, the kaktus looked a little here.
+									https://kaktusa.pl
+
 load dependency
 "mbit": "file:../pxt-mbit"
 */
@@ -105,6 +108,49 @@ namespace mbit_Display {
             control.waitMicros(1000);
         }
     }
+
+
+//*########################################################################################################################################
+//##  testy kaktusa z niebieskimi ledami L8, L9, L10  #####################################################################################
+//########################################################################################################################################*
+
+    export enum enLED_blue {
+        
+        //% blockId="OFF" block="Off"
+        OFF=4095, //0-4095
+        //% blockId="ON" block="On"
+        ON=1024
+    }
+
+    //% blockId=mbit_LED_L8 block="LED_L8| %value"
+    //% weight=9
+    //% blockGap=8
+    //% color="#932bb5"
+    //% valuePWM.fieldEditor="gridpicker"
+    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.columns=1
+
+    export function fLED_L8(valuePWM: enLED_Blue): void {
+
+        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+
+    }
+
+    //% blockId=mbit_LED_L9 block="LED_L9| %value"
+    //% weight=8
+    //% blockGap=8
+    //% color="#932bb5"
+    //% valuePWM.fieldEditor="gridpicker"
+    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.columns=1
+
+    export function fLED_L9(valuePWM: enLED_Blue): void {
+
+        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+
+    }
+
+//#########################################################################################################################################
 
 
 //*****************************************************************************************************************************************
@@ -543,21 +589,21 @@ namespace mbit_Robot {
 
     export enum enColor {
 
-        //% blockId="OFF" block="off"
+        //% blockId="OFF" block="light Off"
         OFF=0,
-        //% blockId="Red" block="red"
+        //% blockId="Red" block="Red"
         Red,
-        //% blockId="Green" block="green"
+        //% blockId="Green" block="Green"
         Green,
-        //% blockId="Blue" block="blue"
+        //% blockId="Blue" block="Blue"
         Blue,
-        //% blockId="White" block="white"
+        //% blockId="White" block="White"
         White,
-        //% blockId="Cyan" block="cyan"
+        //% blockId="Cyan" block="Cyan"
         Cyan,
-        //% blockId="Pinkish" block="magenta"
+        //% blockId="Pinkish" block="Magenta"
         Pinkish,
-        //% blockId="Yellow" block="yellow"
+        //% blockId="Yellow" block="Yellow"
         Yellow
     }
 
@@ -589,21 +635,21 @@ namespace mbit_Robot {
     export enum enPos {
         //% blockId="LeftState" block="left state"
         LeftState = 0,
-        //% blockId="RightState" block="right state"
+        //% blockId="RightState" block="Right state"
         RightState = 1
     }
 
     export enum enLineState {
-        //% blockId="White" block="white"
+        //% blockId="White" block="White"
         White = 0,
-        //% blockId="Black" block="black"
+        //% blockId="Black" block="Black"
         Black = 1
     }
 
     export enum enAvoidState {
-        //% blockId="OBSTACLE" block="with obstacles"
+        //% blockId="OBSTACLE" block="with Obstacles"
         OBSTACLE = 0,
-        //% blockId="NOOBSTACLE" block="without obstacles"
+        //% blockId="NOOBSTACLE" block="without Obstacles"
         NOOBSTACLE = 1
     }
 
@@ -615,19 +661,19 @@ namespace mbit_Robot {
     }
 
     export enum CarState {
-        //% blockId="Car_Run" block="forward"
+        //% blockId="Car_Run" block="Forward"
         Car_Run = 1,
-        //% blockId="Car_Back" block="back"
+        //% blockId="Car_Back" block="Back"
         Car_Back = 2,
-        //% blockId="Car_Left" block="turn left"
+        //% blockId="Car_Left" block="turn Left"
         Car_Left = 3,
-        //% blockId="Car_Right" block="turn right"
+        //% blockId="Car_Right" block="turn Right"
         Car_Right = 4,
-        //% blockId="Car_Stop" block="stop"
+        //% blockId="Car_Stop" block="STOP"
         Car_Stop = 5,
-        //% blockId="Car_SpinLeft" block="rotate left"
+        //% blockId="Car_SpinLeft" block="rotate Left"
         Car_SpinLeft = 6,
-        //% blockId="Car_SpinRight" block="rotate right"
+        //% blockId="Car_SpinRight" block="rotate Right"
         Car_SpinRight = 7
     }
 
@@ -877,13 +923,14 @@ namespace mbit_Robot {
         //pins.analogWritePin(AnalogPin.P1, 1023-speed);
     }
 
-    /**
-     * *****************************************************************
-     * @param index
-     */
+    /*
+        @param index
+    */
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_RGB_Car_Big2
-    //% block="RGB_Car_Big2|value %value"
+    //% block="RGB_Car_Big2|light colour %value"
     //% weight=101
     //% blockGap=10
     //% color="#C814B8"
@@ -891,7 +938,7 @@ namespace mbit_Robot {
     //% value.fieldOptions.width=220
     //% value.fieldOptions.columns=2
 
-    export function fRGB_Car_Big2(value: enColor): void {
+    export function RGB_Car_Big2(value: enColor): void {
 
         switch (value) {
             case enColor.OFF: {
@@ -945,14 +992,16 @@ namespace mbit_Robot {
         }
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_RGB_Car_Big
-    //% block="RGB_Car_Big|value1 %value1|value2 %value2|value3 %value3"
+    //% block="RGB_Car_Big|value 1 %value1|value 2 %value2|value 3 %value3"
     //% weight=100
     //% blockGap=10
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
 
-    export function fRGB_Car_Big(value1: number, value2: number, value3: number): void {
+    export function RGB_Car_Big(value1: number, value2: number, value3: number): void {
 
         let R = value1 * 16;
         let G = value2 * 16;
@@ -971,6 +1020,8 @@ namespace mbit_Robot {
 
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_RGB_Car_Program
     //% block="RGB_Car_Program"
     //% weight=99
@@ -978,7 +1029,7 @@ namespace mbit_Robot {
     //% color="#C814B8"
 // excluded by a kaktus    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
 
-    export function fRGB_Car_Program(): neopixel.Strip {
+    export function RGB_Car_Program(): neopixel.Strip {
 
         if (!yahStrip) {
             yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB);
@@ -987,47 +1038,6 @@ namespace mbit_Robot {
     }
 
 
-//*########################################################################################################################################
-//##  testy kaktusa z niebieskimi ledami L8, L9, L10  #####################################################################################
-//########################################################################################################################################*
-
-    export enum enLED_blue {
-        
-        //% blockId="OFF" block="Off"
-        OFF=4095, //0-4095
-        //% blockId="ON" block="On"
-        ON=1024
-    }
-
-    //% blockId=mbit_LED_L8 block="LED_L8| %value"
-    //% weight=98
-    //% blockGap=8
-    //% color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
-    //% valuePWM.fieldOptions.columns=1
-
-    export function fLED_L8(valuePWM: enLED_Blue): void {
-
-        setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
-
-    }
-
-    //% blockId=mbit_LED_L9 block="LED_L9| %value"
-    //% weight=8
-    //% blockGap=8
-    //% color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
-    //% valuePWM.fieldOptions.columns=1
-
-    export function fLED_L9(valuePWM: enLED_Blue): void {
-
-        setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
-
-    }
-
-//#########################################################################################################################################
 
     //% blockId=mbit_ultrasonic_car
     //%block="ultrasonic return distance(cm)"
@@ -1050,6 +1060,8 @@ namespace mbit_Robot {
         let d = pins.pulseIn(DigitalPin.P15, PulseValue.High, 43200);
         return  Math.floor(d / 58);
     }
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_Music_Car
     //% block="Music_Car|Playback %index"
@@ -1085,6 +1097,8 @@ namespace mbit_Robot {
         }
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_Servo_Car 
     //% block="Servo_Car|num %num|value %value"
     //% weight=96
@@ -1103,6 +1117,8 @@ namespace mbit_Robot {
         setPwm(num + 2, 0, pwm);
 
     }
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_Avoid_Sensor
     //% block="Avoid_Sensor|value %value"
@@ -1147,6 +1163,8 @@ namespace mbit_Robot {
         pins.digitalWritePin(DigitalPin.P9, 1);
         return temp;
     }
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_Line_Sensor
     //% block="Line_Sensor|direct %direct|value %value"
@@ -1197,6 +1215,8 @@ namespace mbit_Robot {
         return temp;
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_CarCtrl
     //% block="CarCtrl|%index"
     //% weight=93
@@ -1217,6 +1237,8 @@ namespace mbit_Robot {
             case CarState.Car_SpinRight: Car_spinright(255, 255); break;
         }
     }
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_CarCtrlSpeed
     //% block="CarCtrlSpeed|%index|speed %speed"
@@ -1239,6 +1261,8 @@ namespace mbit_Robot {
             case CarState.Car_SpinRight: Car_spinright(speed, speed); break;
         }
     }
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_CarCtrlSpeed2 block="CarCtrlSpeed2|%index|speed1 %speed1|speed2 %speed2"
     //% weight=91
