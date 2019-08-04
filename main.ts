@@ -3,7 +3,7 @@ creator: 2010-2019, Shenzhen Yahboom Tech
 modified from liusen
 
 2019-08, for the common good, the kaktus looked a little here.
-									https://kaktusa.pl
+			  https://kaktusa.pl
 
 load dependency
 "mbit": "file:../pxt-mbit"
@@ -48,8 +48,8 @@ namespace mbit_Display {
     }
 
     //% blockId=mbit_LED1
-    //% block="LED1|connected to %pin|state on %value"
-    //% weight=16
+    //% block="LED|connected to %pin|state on %value"
+    //% weight=20
     //% blockGap=8
     //% color="#C814B8"
     //% pin.fieldEditor="gridpicker"
@@ -68,8 +68,8 @@ namespace mbit_Display {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_LED2
-    //% block="LED2|connected to %pin|state on %value"
-    //% weight=14
+    //% block="LED|connected to %pin|state on %value"
+    //% weight=18
     //% blockGap=8
     //% color="#C814B8"
     //% value.min=0 value.max=255
@@ -85,9 +85,9 @@ namespace mbit_Display {
 
 //*****************************************************************************************************************************************
 
-    //% blockId=mbit_BreathLED 
+    //% blockId=mbit_BreathLED
     //% block="BreathLED|connected to %pin"
-    //% weight=12
+    //% weight=16
     //% blockGap=8
     //% color="#C814B8"
     //% pin.fieldEditor="gridpicker"
@@ -122,8 +122,8 @@ namespace mbit_Display {
         ON=1024
     }
 
-    //% blockId=mbit_LED_L8 block="LED_L8| %value"
-    //% weight=9
+    //% blockId=mbit_LED_L8 block="blue LED_L8| state on %value"
+    //% weight=12
     //% blockGap=8
     //% color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
@@ -136,8 +136,8 @@ namespace mbit_Display {
 
     }
 
-    //% blockId=mbit_LED_L9 block="LED_L9| %value"
-    //% weight=8
+    //% blockId=mbit_LED_L9 block="blue LED_L9| %value"
+    //% weight=10
     //% blockGap=8
     //% color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
@@ -178,7 +178,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_RGB2
     //% block="RGB|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
-    //% weight=6
+    //% weight=5
     //% blockGap=8
     //% color="#C814B8"
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
