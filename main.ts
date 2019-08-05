@@ -837,7 +837,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_Music_Car
-    //% block="Music_Car|Playback %index"
+    //% block="Music_Car_Playback | %index"
     //% weight=97
     //% blockGap=10
     //% color="#006400"
@@ -873,7 +873,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_Servo_Car 
-    //% block="Servo_Car|num %num|value %value"
+    //% block="Servo_Car_numer | %num|value %value"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
@@ -894,7 +894,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_Avoid_Sensor
-    //% block="Avoid_Sensor|value %value"
+    //% block="Avoid Sensor|value %value"
     //% weight=95
     //% blockGap=10
     //% color="#006400"
@@ -940,7 +940,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_Line_Sensor
-    //% block="Line_Sensor|direct %direct|value %value"
+    //% block="Line Sensor|direct %direct|value %value"
     //% weight=94
     //% blockGap=10
     //% color="#006400"
@@ -991,7 +991,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_CarCtrl
-    //% block="CarCtrl|%index"
+    //% block="*Car*Ctrl|%index"
     //% weight=93
     //% blockGap=10
     //% color="#006400"
@@ -1014,7 +1014,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_CarCtrlSpeed
-    //% block="CarCtrlSpeed|%index|speed %speed"
+    //% block="*Car*CtrlSpeed|%index|speed %speed"
     //% weight=92
     //% blockGap=10
     //% speed.min=0 speed.max=255
@@ -1037,7 +1037,8 @@ namespace mbit_Robot {
 
 //*****************************************************************************************************************************************
 
-    //% blockId=mbit_CarCtrlSpeed2 block="CarCtrlSpeed2|%index|speed1 %speed1|speed2 %speed2"
+    //% blockId=mbit_CarCtrlSpeed2
+    //% block="*Car*CtrlSpeed2|%index|speed1 %speed1|speed2 %speed2"
     //% weight=91
     //% blockGap=10
     //% speed1.min=0 speed1.max=255 speed2.min=0 speed2.max=255
@@ -1174,7 +1175,7 @@ namespace mbit_Display {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_LED_L8
-    //% block="blue LED_L8 | state on %value"
+    //% block="_blue_LED_L8 | state on %value"
     //% weight=57
     //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
@@ -1188,7 +1189,7 @@ namespace mbit_Display {
     }
 
     //% blockId=mbit_LED_L9
-    //% block="blue LED_L9 | %value"
+    //% block="_blue_LED_L9 | %value"
     //% weight=56
     //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
