@@ -155,8 +155,10 @@ namespace mbit_Input {
         Realse = 1
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_TouchPad 
-    //% block="TouchPad|pin %pin|value %value"
+    //% block="TouchPad|pin %pin|statee on %value"
     //% weight=100
     //% blockGap=10
     //% color="#808080"
@@ -174,6 +176,8 @@ namespace mbit_Input {
             return false;
         }
     }
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_Rocker
     //% block="Rocker|VRX %pin1|VRY %pin2|SW %pin3|value %value"
@@ -231,6 +235,8 @@ namespace mbit_Input {
             return false;
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_Button
     //% block="Button|pin %pin|value %value"
     //% weight=100
@@ -269,7 +275,7 @@ namespace mbit_Music {
     }
 
     //% blockId=mbit_Buzzer
-    //% block="Buzzer|pin %pin|value %value"
+    //% block="Buzzer|pin %pin|state on %value"
     //% weight=100
     //% blockGap=10 
     //% color="#D2691E"
@@ -1177,7 +1183,7 @@ namespace mbit_Display {
 
     export function fLED_L8(valuePWM: enLED_Blue): void {
 
-        setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
@@ -1191,7 +1197,7 @@ namespace mbit_Display {
 
     export function fLED_L9(valuePWM: enLED_Blue): void {
 
-        setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
