@@ -1097,8 +1097,8 @@ namespace mbit_Display {
         
         //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
-	//% blockId="LIGHTL" block="Lightl"
-	LIGHTL=50,
+        //% blockId="LIGHTLY" block="Lightly"
+        LIGHTLY=50,
         //% blockId="ON" block="On"
         ON=1024
     }
@@ -1172,12 +1172,12 @@ namespace mbit_Display {
     //% weight=57
     //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=220
+    //% valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L8(valuePWM: enLED_Blue): void {
 
-        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+        setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
@@ -1191,7 +1191,7 @@ namespace mbit_Display {
 
     export function fLED_L9(valuePWM: enLED_Blue): void {
 
-        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+        setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
