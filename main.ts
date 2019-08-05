@@ -837,7 +837,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_Music_Car
-    //% block="Music_Car_Playback | %index"
+    //% block="Music_Car_Playback|%index"
     //% weight=97
     //% blockGap=10
     //% color="#006400"
@@ -872,8 +872,8 @@ namespace mbit_Robot {
 
 //*****************************************************************************************************************************************
 
-    //% blockId=mbit_Servo_Car 
-    //% block="Servo_Car_numer | %num|value %value"
+    //% blockId=mbit_Servo_Car
+    //% block="Servo_Car_numer|%num|value %value"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
@@ -1014,7 +1014,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_CarCtrlSpeed
-    //% block="*Car*CtrlSpeed|%index|speed %speed"
+    //% block="*Car*Ctrl Speed|%index|speed %speed"
     //% weight=92
     //% blockGap=10
     //% speed.min=0 speed.max=255
