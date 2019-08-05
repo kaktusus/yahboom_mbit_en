@@ -1097,6 +1097,8 @@ namespace mbit_Display {
         
         //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
+	//% blockId="LIGHTL" block="Lightl"
+	LIGHTL=50,
         //% blockId="ON" block="On"
         ON=1024
     }
@@ -1170,7 +1172,7 @@ namespace mbit_Display {
     //% weight=57
     //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
+    //% valuePWM.fieldOptions.width=220
     //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L8(valuePWM: enLED_Blue): void {
@@ -1180,14 +1182,14 @@ namespace mbit_Display {
     }
 
     //% blockId=mbit_LED_L9
-    //% block="blue LED_L9 | state on %value"
+    //% block="blue LED_L9 | %value"
     //% weight=56
     //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
     //% valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
 
-    export function LED_L9(valuePWM: enLED_Blue): void {
+    export function fLED_L9(valuePWM: enLED_Blue): void {
 
         mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
 
@@ -1199,11 +1201,12 @@ namespace mbit_Display {
     //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
     //% weight=55
     //% blockGap=8 color="#C814B8"
-    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value2.defl=200 value3.min=0 value3.max=255
+    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
+    //% value2.defl=200
     //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
     //% pin1.fieldOptions.width=220 pin2.fieldOptions.width=220 pin3.fieldOptions.width=220
     //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
-    //% pin1.defl=0 pin2.defl=1 pin3.defl=2
+    //% pin1.defl=P0 pin2.defl=P1 pin3.defl=P2
 
     export function fRGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
 
