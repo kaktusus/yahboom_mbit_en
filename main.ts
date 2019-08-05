@@ -60,6 +60,8 @@ namespace mbit_Sensor {
         }
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_IR_Sensor
     //% block="IR_Sensor|pin %pin| |%value|obstacle"
     //% weight=100
@@ -81,6 +83,8 @@ namespace mbit_Sensor {
         }
     }
 
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_IR_Send block="IR_Send|pin %pin"
     //% weight=100
     //% blockGap=10
@@ -93,6 +97,8 @@ namespace mbit_Sensor {
 
         IR_send_38k();
     }
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_ultrasonic
     //% block="Ultrasonic|Trig %Trig|Echo %Echo"
@@ -314,6 +320,8 @@ namespace mbit_Motor {
         pins.analogWritePin(pin, value);
 
     }
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_Servo
     //% block="Servo|pin %pin|value %value"
@@ -794,6 +802,7 @@ namespace mbit_Robot {
 
     }
 
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_RGB_Car_Program
     //% block="RGB_Car_Program"
@@ -1110,7 +1119,6 @@ namespace mbit_Display {
         ON=1024
     }
 
-
     //% blockId=mbit_LED1
     //% block="LED|connected to %pin|state on %value"
     //% weight=60
@@ -1175,7 +1183,7 @@ namespace mbit_Display {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_LED_L8
-    //% block="_blue_LED_L8 | state on %value"
+    //% block="blue LED_L8 | state on %value"
     //% weight=57
     //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
@@ -1184,12 +1192,12 @@ namespace mbit_Display {
 
     export function fLED_L8(valuePWM: enLED_Blue): void {
 
-        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
+        mbit_Robot.setPwm(6, 0, valuePWM)    //channel LED, ?,PWM value
 
     }
 
     //% blockId=mbit_LED_L9
-    //% block="_blue_LED_L9 | %value"
+    //% block="blue LED_L9 | %value"
     //% weight=56
     //% blockGap=8 color="#932bb5"
     //% valuePWM.fieldEditor="gridpicker"
@@ -1198,7 +1206,7 @@ namespace mbit_Display {
 
     export function fLED_L9(valuePWM: enLED_Blue): void {
 
-        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+        mbit_Robot.setPwm(7, 0, valuePWM)    //channel LED, ?,PWM value
 
     }
 
