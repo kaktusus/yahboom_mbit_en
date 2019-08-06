@@ -459,20 +459,20 @@ namespace mbit_Robot {
         Car_SpinRight = 7
     }
 
-    export function mbit_Robot.i2cwrite(addr: number, reg: number, value: number) {
+    export function i2cwrite(addr: number, reg: number, value: number) {
         let buf = pins.createBuffer(2)
         buf[0] = reg
         buf[1] = value
         pins.i2cWriteBuffer(addr, buf)
     }
 
-    function i2ccmd(addr: number, value: number) {
+    export function i2ccmd(addr: number, value: number) {
         let buf = pins.createBuffer(1)
         buf[0] = value
         pins.i2cWriteBuffer(addr, buf)
     }
 
-    function i2cread(addr: number, reg: number) {
+    export function i2cread(addr: number, reg: number) {
         pins.i2cWriteNumber(addr, reg, NumberFormat.UInt8BE);
         let val = pins.i2cReadNumber(addr, NumberFormat.UInt8BE);
         return val;
@@ -484,7 +484,7 @@ namespace mbit_Robot {
         initialized = true
     }
 
-    function setFreq(freq: number): void {
+    export function setFreq(freq: number): void {
         // Constrain the frequency
         let prescaleval = 25000000;
         prescaleval /= 4096;
@@ -500,7 +500,7 @@ namespace mbit_Robot {
         i2cwrite(PCA9685_ADD, MODE1, oldmode | 0xa1);
     }
 
-    export function mbit_Robot.setPwm(channel: number, on: number, off: number): void {
+    export function setPwm(channel: number, on: number, off: number): void {
         if (channel < 0 || channel > 15)
             return;
         if (!initialized) {
