@@ -1114,7 +1114,7 @@ namespace mbit_Display {
         //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
         //% blockId="LIGHTLY" block="Lightly"
-        LIGHTLY=50,
+        LIGHTLY=20,
         //% blockId="ON" block="On"
         ON=1024
     }
