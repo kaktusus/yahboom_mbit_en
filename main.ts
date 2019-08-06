@@ -1143,8 +1143,7 @@ namespace mbit_Display {
     //% weight=59
     //% blockGap=8 color="#C814B8"
     //% value.min=0 value.max=255 value.defl=20
-    //% pin.fieldEditor="gridpicker"
-    //% pin.fieldOptions.width=220
+    //% pin.fieldEditor="gridpicker" pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
 
     export function fLED2(pin: AnalogPin, value: number): void {
@@ -1159,8 +1158,7 @@ namespace mbit_Display {
     //% block="Breath LED|connected to %pin"
     //% weight=58
     //% blockGap=8 color="#C814B8"
-    //% pin.fieldEditor="gridpicker"
-    //% pin.fieldOptions.width=220
+    //% pin.fieldEditor="gridpicker" pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
 
     export function fBreathLED(pin: AnalogPin): void {
@@ -1184,29 +1182,25 @@ namespace mbit_Display {
 
     //% blockId=mbit_LED_L8
     //% block="blue LED_L8 | state on %value"
-    //% weight=57
-    //% blockGap=8 color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
+    //% blockGap=8 color="#932bb5" weight=57
+    //% valuePWM.fieldEditor="gridpicker" valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L8(valuePWM: enLED_Blue): void {
 
-        mbit_Robot.setPwm(6, 0, valuePWM)    //channel LED, ?,PWM value
+        mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
     //% blockId=mbit_LED_L9
     //% block="blue LED_L9 | %value"
-    //% weight=56
-    //% blockGap=8 color="#932bb5"
-    //% valuePWM.fieldEditor="gridpicker"
-    //% valuePWM.fieldOptions.width=260
+    //% blockGap=8 color="#932bb5" weight=56
+    //% valuePWM.fieldEditor="gridpicker" valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L9(valuePWM: enLED_Blue): void {
 
-        mbit_Robot.setPwm(7, 0, valuePWM)    //channel LED, ?,PWM value
+        mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
@@ -1218,10 +1212,10 @@ namespace mbit_Display {
     //% blockGap=8 color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% value2.defl=200
-    //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
-    //% pin1.fieldOptions.width=220 pin2.fieldOptions.width=220 pin3.fieldOptions.width=220
-    //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
-//    //% pin1.defl=P0 pin2.defl=P1 pin3.defl=P2
+    //% pin1.fieldEditor="gridpicker" pin1.fieldOptions.width=220 pin1.fieldOptions.columns=3
+    //% pin2.fieldEditor="gridpicker" pin2.fieldOptions.width=220 pin2.fieldOptions.columns=3
+    //% pin3.fieldEditor="gridpicker" pin3.fieldOptions.width=220 pin3.fieldOptions.columns=3
+    //% pin1.defl=3 pin2.defl=2 pin3.defl=1
 
     export function fRGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
 
@@ -1237,9 +1231,9 @@ namespace mbit_Display {
     //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
     //% weight=54
     //% blockGap=8 color="#C814B8"
-    //% pin1.fieldEditor="gridpicker" pin2.fieldEditor="gridpicker" pin3.fieldEditor="gridpicker"
-    //% pin1.fieldOptions.width=200 pin2.fieldOptions.width=200 pin3.fieldOptions.width=200
-    //% pin1.fieldOptions.columns=3 pin2.fieldOptions.columns=3 pin3.fieldOptions.columns=3
+    //% pin1.fieldEditor="gridpicker" pin1.fieldOptions.width=200 pin1.fieldOptions.columns=3
+    //% pin2.fieldEditor="gridpicker" pin2.fieldOptions.width=200 pin2.fieldOptions.columns=3
+    //% pin3.fieldEditor="gridpicker" pin3.fieldOptions.width=200 pin3.fieldOptions.columns=3
     //% value.fieldEditor="gridpicker" value.fieldOptions.width=320 value.fieldOptions.columns=3
 
     export function fRGB2(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, value: enColor): void {
