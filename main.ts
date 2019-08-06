@@ -776,22 +776,6 @@ namespace mbit_Robot {
         }
     }
 
-//*****************************************************************************************************************************************
-
-    //% blockId=mbit_RGB_Car_Program
-    //% block="RGB_Car_Program"
-    //% weight=101
-    //% blockGap=10
-    //% color="#C814B8"
-// excluded by a kaktus    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-
-    export function RGB_Car_Program(): neopixel.Strip {
-
-        if (!yahStrip) {
-            yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB);
-        }
-        return yahStrip;
-    }
 
 //*****************************************************************************************************************************************
 
@@ -1332,6 +1316,23 @@ namespace mbit_Display {
         mbit_Robot.setPwm(1, 0, G);
         mbit_Robot.setPwm(2, 0, B);
 
+    }
+
+//*****************************************************************************************************************************************
+
+    //% blockId=mbit_RGB_Car_Program
+    //% block="RGB_Car_Program"
+    //% weight=101
+    //% blockGap=10
+    //% color="#C814B8"
+// excluded by a kaktus    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+
+    export function RGB_Car_Program(): neopixel.Strip {
+
+        if (!yahStrip) {
+            yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB);
+        }
+        return yahStrip;
     }
 
 //*****************************************************************************************************************************************
