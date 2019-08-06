@@ -172,7 +172,7 @@ namespace mbit_Input {
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
 
-    export function fTouchPad(pin: DigitalPin, value: enTouch): boolean {
+    export function TouchPad(pin: DigitalPin, value: enTouch): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
@@ -203,7 +203,7 @@ namespace mbit_Input {
     //% SW.fieldOptions.columns=3
     //% value.fieldOptions.columns=2
 
-    export function fRocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
+    export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
 
         pins.setPull(pin3, PinPullMode.PullUp);
         let x = pins.analogReadPin(pin1);
@@ -252,7 +252,7 @@ namespace mbit_Input {
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
 
-    export function fButton(pin: DigitalPin, value: enButton): boolean {
+    export function Button(pin: DigitalPin, value: enButton): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
@@ -436,8 +436,8 @@ namespace mbit_Robot {
     }
 
     export enum enServo {
-        
-        S1 = 1,
+
+        S1=1,
         S2,
         S3
     }
@@ -709,98 +709,7 @@ namespace mbit_Robot {
         @param index
     */
 
-//*****************************************************************************************************************************************
 
-    //% blockId=mbit_RGB_Car_Big2
-    //% block="RGB_Car_Big2|light colour %value"
-    //% weight=103
-    //% blockGap=10
-    //% color="#C814B8"
-    //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=220
-    //% value.fieldOptions.columns=2
-
-    export function RGB_Car_Big2(value: enColor): void {
-
-        switch (value) {
-            case enColor.OFF: {
-                setPwm(0, 0, 0);
-                setPwm(1, 0, 0);
-                setPwm(2, 0, 0);
-                break;
-            }
-            case enColor.Red: {
-                setPwm(0, 0, 4095);
-                setPwm(1, 0, 0);
-                setPwm(2, 0, 0);
-                break;
-            }
-            case enColor.Green: {
-                setPwm(0, 0, 0);
-                setPwm(1, 0, 4095);
-                setPwm(2, 0, 0);
-                break;
-            }
-            case enColor.Blue: {
-                setPwm(0, 0, 0);
-                setPwm(1, 0, 0);
-                setPwm(2, 0, 4095);
-                break;
-            }
-            case enColor.White: {
-                setPwm(0, 0, 4095);
-                setPwm(1, 0, 4095);
-                setPwm(2, 0, 4095);
-                break;
-            }
-            case enColor.Cyan: {
-                setPwm(0, 0, 0);
-                setPwm(1, 0, 4095);
-                setPwm(2, 0, 4095);
-                break;
-            }
-            case enColor.Pinkish: {
-                setPwm(0, 0, 4095);
-                setPwm(1, 0, 0);
-                setPwm(2, 0, 4095);
-                break;
-            }
-            case enColor.Yellow: {
-                setPwm(0, 0, 4095);
-                setPwm(1, 0, 4095);
-                setPwm(2, 0, 0);
-                break;
-            }
-        }
-    }
-
-//*****************************************************************************************************************************************
-
-    //% blockId=mbit_RGB_Car_Big
-    //% block="RGB_Car_Big|value 1 %value1|value 2 %value2|value 3 %value3"
-    //% weight=102
-    //% blockGap=10
-    //% color="#C814B8"
-    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
-
-    export function RGB_Car_Big(value1: number, value2: number, value3: number): void {
-
-        let R = value1 * 16;
-        let G = value2 * 16;
-        let B = value3 * 16;
-
-        if (R > 4096)
-            R = 4095;
-        if (G > 4096)
-            G = 4095;
-        if (B > 4096)
-            B = 4095;
-
-        setPwm(0, 0, R);
-        setPwm(1, 0, G);
-        setPwm(2, 0, B);
-
-    }
 
 //*****************************************************************************************************************************************
 
@@ -854,7 +763,7 @@ namespace mbit_Robot {
     //% index.fieldOptions.width=340
     //% index.fieldOptions.columns=3
 
-    export function fMusic_Car(index: enMusic): void {
+    export function Music_Car(index: enMusic): void {
         switch (index) {
             case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
             case enMusic.birthday: music.beginMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once); break;
@@ -891,7 +800,7 @@ namespace mbit_Robot {
     //% num.fieldOptions.width=220
     //% num.fieldOptions.columns=1
 
-    export function fServo_Car(num: enServo, value: number): void {
+    export function Servo_Car(num: enServo, value: number): void {
 
         // 50hz: 20,000 us
         let us = (value * 1800 / 180 + 600); // 0.6 ~ 2.4
@@ -911,7 +820,7 @@ namespace mbit_Robot {
     //% value.fieldOptions.width=220
     //% value.fieldOptions.columns=1
 
-    export function fAvoid_Sensor(value: enAvoidState): boolean {
+    export function Avoid_Sensor(value: enAvoidState): boolean {
 
         let temp: boolean = false;
         pins.digitalWritePin(DigitalPin.P9, 0);
@@ -957,7 +866,7 @@ namespace mbit_Robot {
     //% direct.fieldOptions.width=220 value.fieldOptions.width=220
     //% direct.fieldOptions.columns=1 value.fieldOptions.columns=1
 
-    export function fLine_Sensor(direct: enPos, value: enLineState): boolean {
+    export function Line_Sensor(direct: enPos, value: enLineState): boolean {
 
         let temp: boolean = false;
 
@@ -1008,7 +917,7 @@ namespace mbit_Robot {
     //% index.fieldOptions.width=220
     //% index.fieldOptions.columns=1
 
-    export function fCarCtrl(index: CarState): void {
+    export function CarCtrl(index: CarState): void {
         switch (index) {
             case CarState.Car_Run: Car_run(255, 255); break;
             case CarState.Car_Back: Car_back(255, 255); break;
@@ -1032,7 +941,7 @@ namespace mbit_Robot {
     //% index.fieldOptions.width=220
     //% index.fieldOptions.columns=1
 
-    export function fCarCtrlSpeed(index: CarState, speed: number): void {
+    export function CarCtrlSpeed(index: CarState, speed: number): void {
         switch (index) {
             case CarState.Car_Run: Car_run(speed, speed); break;
             case CarState.Car_Back: Car_back(speed, speed); break;
@@ -1056,7 +965,7 @@ namespace mbit_Robot {
     //% index.fieldOptions.width=220
     //% index.fieldOptions.columns=1
 
-    export function fCarCtrlSpeed2(index: CarState, speed1: number, speed2: number): void {
+    export function CarCtrlSpeed2(index: CarState, speed1: number, speed2: number): void {
         switch (index) {
             case CarState.Car_Run: Car_run(speed1, speed2); break;
             case CarState.Car_Back: Car_back(speed1, speed2); break;
@@ -1127,7 +1036,7 @@ namespace mbit_Display {
     //% value.fieldEditor="gridpicker" value.fieldOptions.width=220
     //% value.fieldOptions.columns=1
 
-    export function fLED1(pin: DigitalPin, value: enLED0_1): void {
+    export function LED1(pin: DigitalPin, value: enLED0_1): void {
 
         pins.digitalWritePin(pin, value);
 
@@ -1142,7 +1051,7 @@ namespace mbit_Display {
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
 
-    export function fLED2(pin: AnalogPin, value: number): void {
+    export function LED2(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value * 1024 / 256);
 
@@ -1156,7 +1065,7 @@ namespace mbit_Display {
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
 
-    export function fBreathLED(pin: AnalogPin): void {
+    export function BreathLED(pin: AnalogPin): void {
 
         for (let i: number = 0; i < 1023; i++) {
             pins.analogWritePin(pin, i);
@@ -1188,7 +1097,7 @@ namespace mbit_Display {
     }
 
     //% blockId=mbit_LED_L9
-    //% block="blue LED_L9 | %value"
+    //% block="blue LED_L9 | state on %value"
     //% blockGap=8 color="#932bb5" weight=57
     //% valuePWM.fieldEditor="gridpicker" valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
@@ -1200,7 +1109,7 @@ namespace mbit_Display {
     }
 
     //% blockId=mbit_LED_L10
-    //% block="blue LED_L10 | %value"
+    //% block="blue LED_L10 | state on %value"
     //% blockGap=8 color="#932bb5" weight=56
     //% valuePWM.fieldEditor="gridpicker" valuePWM.fieldOptions.width=220
     //% valuePWM.fieldOptions.columns=1
@@ -1213,8 +1122,101 @@ namespace mbit_Display {
 
 //*****************************************************************************************************************************************
 
+    //% blockId=mbit_RGB_Car_Big2
+    //% block="RGB_Car_Big LED Ø10mm|light colour %value"
+    //% weight=103
+    //% blockGap=10
+    //% color="#C814B8"
+    //% value.fieldEditor="gridpicker"
+    //% value.fieldOptions.width=220
+    //% value.fieldOptions.columns=2
+
+    export function RGB_Car_Big2(value: enColor): void {
+
+        switch (value) {
+            case enColor.OFF: {
+                mbit_Robot.setPwm(0, 0, 0);
+                mbit_Robot.setPwm(1, 0, 0);
+                mbit_Robot.setPwm(2, 0, 0);
+                break;
+            }
+            case enColor.Red: {
+                mbit_Robot.setPwm(0, 0, 4095);
+                mbit_Robot.setPwm(1, 0, 0);
+                mbit_Robot.setPwm(2, 0, 0);
+                break;
+            }
+            case enColor.Green: {
+                mbit_Robot.setPwm(0, 0, 0);
+                mbit_Robot.setPwm(1, 0, 4095);
+                mbit_Robot.setPwm(2, 0, 0);
+                break;
+            }
+            case enColor.Blue: {
+                mbit_Robot.setPwm(0, 0, 0);
+                mbit_Robot.setPwm(1, 0, 0);
+                mbit_Robot.setPwm(2, 0, 4095);
+                break;
+            }
+            case enColor.White: {
+                mbit_Robot.setPwm(0, 0, 4095);
+                mbit_Robot.setPwm(1, 0, 4095);
+                mbit_Robot.setPwm(2, 0, 4095);
+                break;
+            }
+            case enColor.Cyan: {
+                mbit_Robot.setPwm(0, 0, 0);
+                mbit_Robot.setPwm(1, 0, 4095);
+                mbit_Robot.setPwm(2, 0, 4095);
+                break;
+            }
+            case enColor.Pinkish: {
+                mbit_Robot.setPwm(0, 0, 4095);
+                mbit_Robot.setPwm(1, 0, 0);
+                mbit_Robot.setPwm(2, 0, 4095);
+                break;
+            }
+            case enColor.Yellow: {
+                mbit_Robot.setPwm(0, 0, 4095);
+                mbit_Robot.setPwm(1, 0, 4095);
+                mbit_Robot.setPwm(2, 0, 0);
+                break;
+            }
+        }
+    }
+
+//*****************************************************************************************************************************************
+
+    //% blockId=mbit_RGB_Car_Big
+    //% block="RGB _Car_Big LED Ø10mm|value 1 %value1|value 2 %value2|value 3 %value3"
+    //% weight=102
+    //% blockGap=10
+    //% color="#C814B8"
+    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
+
+    export function RGB_Car_Big(value1: number, value2: number, value3: number): void {
+
+        let R = value1 * 16;
+        let G = value2 * 16;
+        let B = value3 * 16;
+
+        if (R > 4096)
+            R = 4095;
+        if (G > 4096)
+            G = 4095;
+        if (B > 4096)
+            B = 4095;
+
+        mbit_Robot.setPwm(0, 0, R);
+        mbit_Robot.setPwm(1, 0, G);
+        mbit_Robot.setPwm(2, 0, B);
+
+    }
+
+//*****************************************************************************************************************************************
+
     //% blockId=mbit_RGB
-    //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
+    //% block="RGB Led|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 connected to Blue %pin3|value Red %value1|value Green %value2|value Blue %value3"
     //% weight=55
     //% blockGap=8 color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
@@ -1224,7 +1226,7 @@ namespace mbit_Display {
     //% pin3.fieldEditor="gridpicker" pin3.fieldOptions.width=220 pin3.fieldOptions.columns=3
     //% pin1.defl=3 pin2.defl=2 pin3.defl=1
 
-    export function fRGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
+    export function RGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
 
         pins.analogWritePin(pin1, value1 * 1024 / 256);
         pins.analogWritePin(pin2, value2 * 1024 / 256);
@@ -1235,7 +1237,7 @@ namespace mbit_Display {
 //*****************************************************************************************************************************************
 
     //% blockId=mbit_RGB2
-    //% block="RGB Led Ø10mm|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
+    //% block="RGB Led|Pin 1 Red connected to %pin1|Pin 2 Green connected to %pin2|Pin 3 Blue connected to %pin3|Set the colour %value"
     //% weight=54
     //% blockGap=8 color="#C814B8"
     //% pin1.fieldEditor="gridpicker" pin1.fieldOptions.width=200 pin1.fieldOptions.columns=3
@@ -1243,7 +1245,7 @@ namespace mbit_Display {
     //% pin3.fieldEditor="gridpicker" pin3.fieldOptions.width=200 pin3.fieldOptions.columns=3
     //% value.fieldEditor="gridpicker" value.fieldOptions.width=320 value.fieldOptions.columns=3
 
-    export function fRGB2(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, value: enColor): void {
+    export function RGB2(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, value: enColor): void {
 
         switch (value) {
             case enColor.OFF: {
