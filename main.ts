@@ -310,8 +310,7 @@ namespace mbit_Music {
     //% blockId=mbit_Buzzer
     //% block="Buzzer|pin %pin|state on %value"
     //% weight=100
-    //% blockGap=10
-    //% color="#D2691E"
+    //% blockGap=10 color="#D2691E"
     //% value.min=0 value.max=1
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
@@ -328,9 +327,8 @@ namespace mbit_Music {
 
     //% blockId=mbit_Music_Car
     //% block="Music_Car_Playback|%index"
-    //% weight=97
-    //% blockGap=10
-    //% color="#D2691E"
+    //% weight=99
+    //% blockGap=10 color="#D2691E"
     //% index.fieldEditor="gridpicker"
     //% index.fieldOptions.width=340
     //% index.fieldOptions.columns=3
@@ -431,25 +429,6 @@ namespace mbit_Robot {
 
     let initialized = false
 
-    export enum enColor {
-
-        //% blockId="OFF" block="light Off"
-        OFF=0,
-        //% blockId="Red" block="Red"
-        Red,
-        //% blockId="Green" block="Green"
-        Green,
-        //% blockId="Blue" block="Blue"
-        Blue,
-        //% blockId="White" block="White"
-        White,
-        //% blockId="Cyan" block="Cyan"
-        Cyan,
-        //% blockId="Pinkish" block="Magenta"
-        Pinkish,
-        //% blockId="Yellow" block="Yellow"
-        Yellow
-    }
 
     export enum enPos {
         //% blockId="LeftState" block="left state"
@@ -986,7 +965,6 @@ namespace mbit_Robot {
 
 }
 
-
 /*****************************************************************************************************************************************
  *  LEDs  name space  ********************************************************************************************************************
  ****************************************************************************************************************************************/
@@ -1012,10 +990,7 @@ namespace mbit_Display {
         Pinkish,
         //% blockId="Yellow" block="Yellow"
         Yellow
-
     }
-
-//*****************************************************************************************************************************************
 
     export enum enLED0_1 {
 
@@ -1036,6 +1011,8 @@ namespace mbit_Display {
     }
 
     let yahStrip: neopixel.Strip;
+
+//*****************************************************************************************************************************************
 
     //% blockId=mbit_LED1
     //% block="LED|connected to %pin|state on %value"
@@ -1233,7 +1210,7 @@ namespace mbit_Display {
     export function RGB_Car_Program(): neopixel.Strip {
 
         if (!yahStrip) {
-            yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB);
+            yahStrip = neopixel.create(DigitalPin.P16, 3, neopixel.NeoPixelMode.RGB);
         }
         return yahStrip;  
     }
@@ -1324,4 +1301,5 @@ namespace mbit_Display {
             }
         }
     }
+
 }
