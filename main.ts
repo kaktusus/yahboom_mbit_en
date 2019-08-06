@@ -478,7 +478,7 @@ namespace mbit_Robot {
         return val;
     }
 
-    export function mbit_Robot.initPCA9685(): void {
+    export function initPCA9685(): void {
         i2cwrite(PCA9685_ADD, MODE1, 0x00)
         setFreq(50);
         initialized = true
