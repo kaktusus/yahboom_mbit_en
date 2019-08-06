@@ -9,7 +9,6 @@ load dependency
 "mbit": "file:../pxt-mbit"
 */
 
-
 /*****************************************************************************************************************************************
  *  Sensors name space (Sekcja czujników)  ***********************************************************************************************
  ****************************************************************************************************************************************/
@@ -19,28 +18,27 @@ namespace mbit_Sensor {
 
     export enum enVoice {
         //% blockId="Voice" block="sound"
-        Voice = 0,
+        Voice=0,
         //% blockId="NoVoice" block="silence"
-        NoVoice = 1
+        NoVoice=1
     }
 
     export enum enIR {
         //% blockId="Get" block="detected"
-        Get = 0,
+        Get=0,
         //% blockId="NoVoice" block="undetected"
-        NoGet = 1
+        NoGet=1
     }
 
     //% blockId=mbit_Voice_Sensor
     //% block="Voice_Sensor|pin %pin|value %value"
+    //% blockGap=10 color="#87CEEB"
     //% weight=100
-    //% blockGap=10
-    //% color="#87CEEB"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
 
-    export function fVoice_Sensor(pin: DigitalPin, value: enVoice): boolean {
+    export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
@@ -64,14 +62,13 @@ namespace mbit_Sensor {
 
     //% blockId=mbit_IR_Sensor
     //% block="IR_Sensor|pin %pin| |%value|obstacle"
+    //% blockGap=10 color="#87CEEB"
     //% weight=100
-    //% blockGap=10
-    //% color="#87CEEB"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
 
-    export function fIR_Sensor(pin: DigitalPin, value: enIR): boolean {
+    export function IR_Sensor(pin: DigitalPin, value: enIR): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
         //IR_send_38k();
@@ -85,15 +82,15 @@ namespace mbit_Sensor {
 
 //*****************************************************************************************************************************************
 
-    //% blockId=mbit_IR_Send block="IR_Send|pin %pin"
+    //% blockId=mbit_IR_Send
+    //% block="IR_Send|pin %pin"
+    //% blockGap=10 color="#87CEEB"
     //% weight=100
-    //% blockGap=10
-    //% color="#87CEEB"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
 
-    export function fIR_Send(pin: DigitalPin): void {
+    export function IR_Send(pin: DigitalPin): void {
 
         IR_send_38k();
     }
@@ -102,9 +99,8 @@ namespace mbit_Sensor {
 
     //% blockId=mbit_ultrasonic
     //% block="Ultrasonic|Trig %Trig|Echo %Echo"
-    //% color="#87CEEB"
+    //% blockGap=10 color="#87CEEB"
     //% weight=100
-    //% blockGap=10
     //% Trig.fieldEditor="gridpicker" Echo.fieldEditor="gridpicker"
     //% Trig.fieldOptions.width=200 Echo.fieldOptions.width=200
     //% Trig`.fieldOptions.columns=3 Echo.fieldOptions.columns=3
@@ -166,8 +162,7 @@ namespace mbit_Input {
     //% blockId=mbit_TouchPad 
     //% block="TouchPad|pin %pin|statee on %value"
     //% weight=100
-    //% blockGap=10
-    //% color="#808080"
+    //% blockGap=10 color="#808080"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
@@ -188,16 +183,11 @@ namespace mbit_Input {
     //% blockId=mbit_Rocker
     //% block="Rocker|VRX %pin1|VRY %pin2|SW %pin3|value %value"
     //% weight=100
-    //% blockGap=10
-    //% color="#808080"
-    //% VRX.fieldEditor="gridpicker"
-    //% VRY.fieldEditor="gridpicker"
-    //% SW.fieldEditor="gridpicker"
-    //% value.fieldEditor="gridpicker"
-    //% VRX.fieldOptions.width=200
-    //% VRY.fieldOptions.width=200
-    //% SW.fieldOptions.width=200
-    //% value.fieldOptions.width=200
+    //% blockGap=10 color="#808080"
+    //% VRX.fieldEditor="gridpicker" VRX.fieldOptions.width=200
+    //% VRY.fieldEditor="gridpicker" VRY.fieldOptions.width=200
+    //% SW.fieldEditor="gridpicker" SW.fieldOptions.width=200
+    //% value.fieldEditor="gridpicker" value.fieldOptions.width=200
     //% VRX.fieldOptions.columns=3
     //% VRY.fieldOptions.columns=3
     //% SW.fieldOptions.columns=3
@@ -213,13 +203,10 @@ namespace mbit_Input {
 
         if (x < 100) //up
         {
-
             now_state = enRocker.Up;
-
         }
         else if (x > 700) //down
         {
-
             now_state = enRocker.Down;
         }
         else  // left and right
@@ -246,8 +233,7 @@ namespace mbit_Input {
     //% blockId=mbit_Button
     //% block="Button|pin %pin|value %value"
     //% weight=100
-    //% blockGap=10
-    //% color="#808080"
+    //% blockGap=10 color="#808080"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
@@ -261,7 +247,6 @@ namespace mbit_Input {
         else {
             return false;
         }
-
     }
 }
 
@@ -320,9 +305,7 @@ namespace mbit_Music {
 
         pins.setPull(pin, PinPullMode.PullNone);
         pins.digitalWritePin(pin, value);
-
     }
-
 
 //*****************************************************************************************************************************************
 
@@ -335,6 +318,7 @@ namespace mbit_Music {
     //% index.fieldOptions.columns=3
 
     export function Music_Car(index: enMusic): void {
+
         switch (index) {
             case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
             case enMusic.birthday: music.beginMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once); break;
@@ -359,8 +343,6 @@ namespace mbit_Music {
         }
     }
 
-
-
 }
 
 /******************************************************************************************************************************************
@@ -373,16 +355,15 @@ namespace mbit_Motor {
     //% blockId=mbit_Fan
     //% block="Fan|pin %pin|speed %value"
     //% weight=100
-    //% blockGap=10
-    //% color="#0000CD"
+    //% blockGap=10 color="#0000CD"
     //% value.min=0 value.max=1023
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
+
     export function fFan(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value);
-
     }
 
 //*****************************************************************************************************************************************
@@ -390,16 +371,15 @@ namespace mbit_Motor {
     //% blockId=mbit_Servo
     //% block="Servo|pin %pin|value %value"
     //% weight=100
-    //% blockGap=10
-    //% color="#0000CD"
+    //% blockGap=10 color="#0000CD"
     //% value.min=0 value.max=180
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.width=200
     //% pin.fieldOptions.columns=3
+
     export function fServo(pin: AnalogPin, value: number): void {
 
         pins.servoWritePin(pin, value);
-
     }
 
 }
@@ -431,9 +411,9 @@ namespace mbit_Robot {
     const PRESCALE = 0xFE
 
     let initialized = false
-
-//    let yahStrip: neopixel.Strip;
 /*
+    let yahStrip: neopixel.Strip;
+
     export enum enMusic {
 
         dadadum=0,
@@ -460,6 +440,7 @@ namespace mbit_Robot {
     }
 */
     export enum enPos {
+
         //% blockId="LeftState" block="left state"
         LeftState = 0,
         //% blockId="RightState" block="Right state"
@@ -467,6 +448,7 @@ namespace mbit_Robot {
     }
 
     export enum enLineState {
+
         //% blockId="White" block="White"
         White = 0,
         //% blockId="Black" block="Black"
@@ -474,6 +456,7 @@ namespace mbit_Robot {
     }
 
     export enum enAvoidState {
+
         //% blockId="OBSTACLE" block="with Obstacles"
         OBSTACLE = 0,
         //% blockId="NOOBSTACLE" block="without Obstacles"
@@ -488,6 +471,7 @@ namespace mbit_Robot {
     }
 
     export enum CarState {
+
         //% blockId="Car_Run" block="Forward"
         Car_Run = 1,
         //% blockId="Car_Back" block="Back"
@@ -506,6 +490,7 @@ namespace mbit_Robot {
 
 //*****************************************************************************************************************************************
     export function i2cwrite(addr: number, reg: number, value: number) {
+
         let buf = pins.createBuffer(2)
         buf[0] = reg
         buf[1] = value
@@ -515,6 +500,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     export function i2ccmd(addr: number, value: number) {
+
         let buf = pins.createBuffer(1)
         buf[0] = value
         pins.i2cWriteBuffer(addr, buf)
@@ -523,6 +509,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     export function i2cread(addr: number, reg: number) {
+
         pins.i2cWriteNumber(addr, reg, NumberFormat.UInt8BE);
         let val = pins.i2cReadNumber(addr, NumberFormat.UInt8BE);
         return val;
@@ -531,6 +518,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     export function initPCA9685(): void {
+
         i2cwrite(PCA9685_ADD, MODE1, 0x00)
         setFreq(50);
         initialized = true
@@ -539,6 +527,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     export function setFreq(freq: number): void {
+
         // Constrain the frequency
         let prescaleval = 25000000;
         prescaleval /= 4096;
@@ -557,6 +546,7 @@ namespace mbit_Robot {
 //*****************************************************************************************************************************************
 
     export function setPwm(channel: number, on: number, off: number): void {
+
         if (channel < 0 || channel > 15)
             return;
         if (!initialized) {
@@ -595,6 +585,7 @@ namespace mbit_Robot {
 
         setPwm(15, 0, speed2);
         setPwm(14, 0, 0);
+
         // pins.digitalWritePin(DigitalPin.P16, 1);
         // pins.analogWritePin(AnalogPin.P1, 1023-speed); //Kontrola prędkości
 
@@ -690,6 +681,7 @@ namespace mbit_Robot {
 
         setPwm(15, 0, speed2);
         setPwm(14, 0, 0);
+
         //pins.digitalWritePin(DigitalPin.P0, 0);
         //pins.digitalWritePin(DigitalPin.P8, 0);
 
@@ -706,6 +698,7 @@ namespace mbit_Robot {
 
         setPwm(15, 0, 0);
         setPwm(14, 0, 0);
+
         //pins.digitalWritePin(DigitalPin.P0, 0);
         //pins.digitalWritePin(DigitalPin.P8, 0);
         //pins.digitalWritePin(DigitalPin.P16, 0);
@@ -768,6 +761,7 @@ namespace mbit_Robot {
 
         setPwm(15, 0, 0);
         setPwm(14, 0, speed2);
+
         //pins.analogWritePin(AnalogPin.P0, 1023-speed);
         //pins.digitalWritePin(DigitalPin.P8, 1);
 
@@ -783,9 +777,8 @@ namespace mbit_Robot {
 
     //% blockId=mbit_ultrasonic_car
     //%block="ultrasonic return distance(cm)"
-    //% color="#006400"
     //% weight=98
-    //% blockGap=10
+    //% blockGap=10 color="#006400"
 // excluded by a kaktus   //% name.fieldEditor="gridpicker" name.fieldOptions.columns=3
 
     export function Ultrasonic_Car(): number {
@@ -808,8 +801,7 @@ namespace mbit_Robot {
     //% blockId=mbit_Servo_Car
     //% block="Servo_Car_numer|%num|value %value"
     //% weight=96
-    //% blockGap=10
-    //% color="#006400"
+    //% blockGap=10 color="#006400"
     //% num.min=1 num.max=3 value.min=0 value.max=180
     //% num.fieldEditor="gridpicker"
     //% num.fieldOptions.width=220
@@ -829,8 +821,7 @@ namespace mbit_Robot {
     //% blockId=mbit_Avoid_Sensor
     //% block="Avoid Sensor|value %value"
     //% weight=95
-    //% blockGap=10
-    //% color="#006400"
+    //% blockGap=10 color="#006400"
     //% value.fieldEditor="gridpicker"
     //% value.fieldOptions.width=220
     //% value.fieldOptions.columns=1
@@ -852,10 +843,8 @@ namespace mbit_Robot {
                 }
                 break;
             }
-
             case enAvoidState.NOOBSTACLE: {
                 if (pins.analogReadPin(AnalogPin.P3) > 800) {
-
                     temp = true;
                     setPwm(8, 0, 4095);
                 }
@@ -875,8 +864,7 @@ namespace mbit_Robot {
     //% blockId=mbit_Line_Sensor
     //% block="Line Sensor|direct %direct|value %value"
     //% weight=94
-    //% blockGap=10
-    //% color="#006400"
+    //% blockGap=10 color="#006400"
     //% direct.fieldEditor="gridpicker" value.fieldEditor="gridpicker"
     //% direct.fieldOptions.width=220 value.fieldOptions.width=220
     //% direct.fieldOptions.columns=1 value.fieldOptions.columns=1
@@ -901,7 +889,6 @@ namespace mbit_Robot {
                 }
                 break;
             }
-
             case enPos.RightState: {
                 if (pins.analogReadPin(AnalogPin.P1) < 500) {
                     if (value == enLineState.White) {
@@ -926,13 +913,13 @@ namespace mbit_Robot {
     //% blockId=mbit_CarCtrl
     //% block="*Car*Ctrl|%index"
     //% weight=93
-    //% blockGap=10
-    //% color="#006400"
+    //% blockGap=10 color="#006400"
     //% index.fieldEditor="gridpicker"
     //% index.fieldOptions.width=220
     //% index.fieldOptions.columns=1
 
     export function CarCtrl(index: CarState): void {
+
         switch (index) {
             case CarState.Car_Run: Car_run(255, 255); break;
             case CarState.Car_Back: Car_back(255, 255); break;
@@ -949,14 +936,14 @@ namespace mbit_Robot {
     //% blockId=mbit_CarCtrlSpeed
     //% block="*Car*Ctrl Speed|%index|speed %speed"
     //% weight=92
-    //% blockGap=10
+    //% blockGap=10 color="#006400"
     //% speed.min=0 speed.max=255
-    //% color="#006400"
     //% index.fieldEditor="gridpicker"
     //% index.fieldOptions.width=220
     //% index.fieldOptions.columns=1
 
     export function CarCtrlSpeed(index: CarState, speed: number): void {
+
         switch (index) {
             case CarState.Car_Run: Car_run(speed, speed); break;
             case CarState.Car_Back: Car_back(speed, speed); break;
@@ -980,6 +967,7 @@ namespace mbit_Robot {
     //% index.fieldOptions.columns=1
 
     export function CarCtrlSpeed2(index: CarState, speed1: number, speed2: number): void {
+
         switch (index) {
             case CarState.Car_Run: Car_run(speed1, speed2); break;
             case CarState.Car_Back: Car_back(speed1, speed2); break;
@@ -1031,7 +1019,7 @@ namespace mbit_Display {
     }
 
     export enum enLED_Blue {
-        
+
         //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
         //% blockId="LIGHTLY" block="Lightly"
@@ -1039,7 +1027,6 @@ namespace mbit_Display {
         //% blockId="ON" block="On"
         ON=1024
     }
-
 
 //*****************************************************************************************************************************************
 
@@ -1055,7 +1042,6 @@ namespace mbit_Display {
     export function LED1(pin: DigitalPin, value: enLED0_1): void {
 
         pins.digitalWritePin(pin, value);
-
     }
 
 //*****************************************************************************************************************************************
@@ -1071,7 +1057,6 @@ namespace mbit_Display {
     export function LED2(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value * 1024 / 256);
-
     }
 
 //*****************************************************************************************************************************************
@@ -1112,7 +1097,6 @@ namespace mbit_Display {
     export function fLED_L8(valuePWM: enLED_Blue): void {
 
         mbit_Robot.setPwm(6, 0, valuePWM);    //channel LED, ?,PWM value
-
     }
 
     //% blockId=mbit_LED_L9
@@ -1125,7 +1109,6 @@ namespace mbit_Display {
     export function fLED_L9(valuePWM: enLED_Blue): void {
 
         mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
-
     }
 
     //% blockId=mbit_LED_L10
@@ -1138,7 +1121,6 @@ namespace mbit_Display {
     export function fLED_L10(valuePWM: enLED_Blue): void {
 
         mbit_Robot.setPwm(8, 0, valuePWM);    //channel LED, ?,PWM value
-
     }
 
 
@@ -1161,7 +1143,6 @@ namespace mbit_Display {
         pins.analogWritePin(pin1, value1 * 1024 / 256);
         pins.analogWritePin(pin2, value2 * 1024 / 256);
         pins.analogWritePin(pin3, value3 * 1024 / 256);
-
     }
 
 //*****************************************************************************************************************************************
@@ -1317,7 +1298,6 @@ namespace mbit_Display {
         mbit_Robot.setPwm(0, 0, R);
         mbit_Robot.setPwm(1, 0, G);
         mbit_Robot.setPwm(2, 0, B);
-
     }
 
 //*****************************************************************************************************************************************
@@ -1325,8 +1305,7 @@ namespace mbit_Display {
     //% blockId=mbit_RGB_Car_Program
     //% block="RGB_Car_Program"
     //% weight=101
-    //% blockGap=10
-    //% color="#C814B8"
+    //% blockGap=10 color="#C814B8"
 // excluded by a kaktus    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
 
     export function RGB_Car_Program(): neopixel.Strip {
@@ -1338,6 +1317,5 @@ namespace mbit_Display {
     }
 
 //*****************************************************************************************************************************************
-
 
 }
