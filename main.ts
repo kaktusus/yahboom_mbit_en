@@ -1114,20 +1114,17 @@ namespace mbit_Display {
         //% blockId="OFF" block="Off"
         OFF=4095, //0-4095
         //% blockId="LIGHTLY" block="Lightly"
-        LIGHTLY=20,
+        LIGHTLY=2,
         //% blockId="ON" block="On"
         ON=1024
     }
 
     //% blockId=mbit_LED1
     //% block="LED|connected to %pin|state on %value"
-    //% weight=60
-    //% blockGap=8 color="#C814B8"
-    //% pin.fieldEditor="gridpicker"
-    //% pin.fieldOptions.width=220
+    //% blockGap=8 color="#C814B8" weight=61
+    //% pin.fieldEditor="gridpicker" pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
-    //% value.fieldEditor="gridpicker"
-    //% value.fieldOptions.width=220
+    //% value.fieldEditor="gridpicker" value.fieldOptions.width=220
     //% value.fieldOptions.columns=1
 
     export function fLED1(pin: DigitalPin, value: enLED0_1): void {
@@ -1140,8 +1137,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_LED2
     //% block="LED|connected to %pin|state on %value"
-    //% weight=59
-    //% blockGap=8 color="#C814B8"
+    //% blockGap=8 color="#C814B8" weight=60
     //% value.min=0 value.max=255 value.defl=20
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
@@ -1156,8 +1152,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_BreathLED
     //% block="Breath LED|connected to %pin"
-    //% weight=58
-    //% blockGap=8 color="#C814B8"
+    //% blockGap=8 color="#C814B8" weight=59
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.width=220
     //% pin.fieldOptions.columns=3
 
@@ -1182,7 +1177,7 @@ namespace mbit_Display {
 
     //% blockId=mbit_LED_L8
     //% block="blue LED_L8 | state on %value"
-    //% blockGap=8 color="#932bb5" weight=57
+    //% blockGap=8 color="#932bb5" weight=58
     //% valuePWM.fieldEditor="gridpicker" valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
 
@@ -1194,13 +1189,25 @@ namespace mbit_Display {
 
     //% blockId=mbit_LED_L9
     //% block="blue LED_L9 | %value"
-    //% blockGap=8 color="#932bb5" weight=56
+    //% blockGap=8 color="#932bb5" weight=57
     //% valuePWM.fieldEditor="gridpicker" valuePWM.fieldOptions.width=260
     //% valuePWM.fieldOptions.columns=1
 
     export function fLED_L9(valuePWM: enLED_Blue): void {
 
         mbit_Robot.setPwm(7, 0, valuePWM);    //channel LED, ?,PWM value
+
+    }
+
+    //% blockId=mbit_LED_L10
+    //% block="blue LED_L10 | %value"
+    //% blockGap=8 color="#932bb5" weight=56
+    //% valuePWM.fieldEditor="gridpicker" valuePWM.fieldOptions.width=220
+    //% valuePWM.fieldOptions.columns=1
+
+    export function fLED_L10(valuePWM: enLED_Blue): void {
+
+        mbit_Robot.setPwm(8, 0, valuePWM);    //channel LED, ?,PWM value
 
     }
 
