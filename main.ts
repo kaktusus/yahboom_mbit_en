@@ -394,7 +394,7 @@ namespace mbit_Robot {
 
     let initialized = false
 
-    let yahStrip: neopixel.Strip;
+//    let yahStrip: neopixel.Strip;
 
     export enum enMusic {
 
@@ -590,9 +590,9 @@ namespace mbit_Robot {
         setPwm(14, 0, speed2);
 
         //pins.digitalWritePin(DigitalPin.P16, 0);
-        //pins.analogWritePin(AnalogPin.P1, speed); //速度控制
+        //pins.analogWritePin(AnalogPin.P1, speed); //speed control
 
-        //pins.analogWritePin(AnalogPin.P0, 1023 - speed);//速度控制
+        //pins.analogWritePin(AnalogPin.P0, 1023 - speed);//speed control
         //pins.digitalWritePin(DigitalPin.P8, 1);
     }
 
