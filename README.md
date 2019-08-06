@@ -1,6 +1,6 @@
 # mbit
 
-Extension for Yahboom zh_tr mbit 
+Extension for Yahboom mbit 
 
 ## License
 
